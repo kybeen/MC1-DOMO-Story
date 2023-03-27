@@ -3,6 +3,7 @@ import SwiftUI
 
 enum MyCustomFonts: String, CaseIterable {
     case DungGeunMo = "DungGeunMo.ttf"
+    case gulim = "gulim.ttc"
     var fontName: String { String(rawValue.dropLast(4)) }
     var fileExtension: String { String(rawValue.suffix(3)) }
 }

@@ -15,10 +15,16 @@ struct ContentView: View {
                         .frame(height: 250)
                         .padding(.bottom, -radius)
                         .opacity(0.72)
-
-                    Text("안녕하세요")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
+                    VStack{
+                        //둥근모 체
+                        Text("안녕하세요")
+                            .font(.custom(.DungGeunMo, size: 40))
+                            .foregroundColor(.white)
+                        //굴림체
+                        Text("안녕하세요")
+                            .font(.custom(.gulim, size: 40))
+                            .foregroundColor(.white)
+                    }
                 }
             }
         }
@@ -32,3 +38,4 @@ struct Previews_ContentView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
