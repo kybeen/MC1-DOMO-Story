@@ -11,6 +11,8 @@ struct ContactSnsView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    // 도모 회전 각도 변수
+    @State private var isRotating = 0.0
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -24,7 +26,7 @@ struct ContactSnsView: View {
     // 배경화면
     let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지
-    let domoImage = "DomoDown"
+    let domoImage = "DomoSide"
 
     var body: some View {
         ZStack {
@@ -47,6 +49,16 @@ struct ContactSnsView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: screenWidth * 0.6, height: screenHeight * 0.5)
+                    // 도모 회전
+                    .rotationEffect(.degrees(isRotating))
+                    .onAppear {
+                        // 도모 회전 소요 시간
+                        withAnimation(.linear(duration: 1)
+                            .speed(1)) {
+                                // 회전할 각도
+                                isRotating = -60.0
+                            }
+                    }
                 }
                 // 대화창
                 ZStack(alignment: .top) {
