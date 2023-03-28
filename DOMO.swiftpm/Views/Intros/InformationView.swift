@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct InformationView: View {
-    @State var nickname: String = "" // 닉네임 입력
+    @EnvironmentObject var user: UserSettings // 닉네임 입력
+//    @State var nickname: String = "" // 닉네임 입력
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
@@ -42,11 +43,11 @@ struct InformationView: View {
                             }
                         }
                     
-                    SeperatedTextField(length: 8, string: $nickname)
+                    SeperatedTextField(length: 8, string: $user.nickname)
                     
                     // 확인 버튼
                     Button {
-                        if nickname != "" {
+                        if user.nickname != "" {
                             nicknameDone = true
                             isButtonAnimating = true
                             isInputAnimating = false
@@ -75,7 +76,7 @@ struct InformationView: View {
                                 Text(">>>")
                                     .foregroundColor(Color("TitleColor"))
                                     .padding(.trailing, 10)
-                                Text("네, 제가 \(nickname) 맞습니다. (진행하기)")
+                                Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
                                     .overlay(
                                         Rectangle()
                                             .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
@@ -94,9 +95,9 @@ struct InformationView: View {
                         
                         /* 취소 버튼 */
                         Button {
-                            //nickname = "" // 닉네임 지워줘야함 State값 변경하는 방법 찾기
                             nicknameDone = false
                             isButtonAnimating = false
+                            user.nickname = "" // 닉네임 지워줘야함 State값 변경하는 방법 찾기
                         } label: {
                             HStack {
                                 Text(">>>")
@@ -126,5 +127,6 @@ struct InformationView: View {
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
+            .environmentObject(UserSettings())
     }
 }
