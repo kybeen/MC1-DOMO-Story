@@ -9,10 +9,55 @@
 import SwiftUI
 
 struct StartView: View {
-    @EnvironmentObject var user: UserSettings
+    @EnvironmentObject var user: UserSettings // 사용자 정보
+    @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
+    @State var isDomoAnimating = false // 도모쿤 이미지 애니메이션 효과를 주기 위한 state변수
     
     var body: some View {
-        Text("TEST \(user.nickname)")
+        ZStack(alignment: .topLeading) {
+            Color.black.ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                Text("\(user.nickname)님. \n이제부터 당신은 『도모쿤』 입니다.")
+                    .foregroundColor(.white)
+                    .font(.custom(.DungGeunMo, size: 35))
+                    .padding(.leading, 60)
+                    .padding(.top, 60)
+                
+                
+                
+                NavigationLink {
+                    ScriptSampleView()
+                } label: {
+                    MyUnderlineText(
+                        text: "아니. 왜요? (시작하기)",
+                        fontSize: 30,
+                        arrowColor: Color("TitleColor"),
+                        textColor: .white,
+                        underlineLen: 350,
+                        isBtnAnimating: true
+                    )
+                }
+                .padding(.top, 30)
+                .padding(.leading, 60)
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    Image("DomoHowl")
+                        .resizable()
+                        .frame(width: 326, height: 361)
+                        .offset(y: isDomoAnimating ? -70 : 0)
+                        .animation(.easeIn(duration: 1).repeatForever(), value: isDomoAnimating)
+                        .onAppear {
+                            isDomoAnimating = true
+                        }
+                    
+                }
+                .padding(.trailing, 50).padding(.bottom, 70)
+            }
+        }
     }
 }
 

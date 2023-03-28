@@ -21,17 +21,13 @@ struct InformationView: View {
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
-                Text("안녕하세요, 러너님. \n닉네임이 무엇인가요?")
-                    .foregroundColor(.white)
-                    .font(.custom(.DungGeunMo, size: 35))
+                MyText(text: "안녕하세요, 러너님. \n닉네임이 무엇인가요?", fontSize: 35)
                     .padding(.leading, 60)
                     .padding(.top, 60)
                 
                 /* 입력폼 */
                 HStack {
-                    Text(">>>")
-                        .foregroundColor(.gray)
-                        .font(.custom(.DungGeunMo, size: 35))
+                    MyText(text: ">>>", fontSize: 35, textColor: .gray)
                         .padding(.leading, 60)
                         .padding(.trailing, 10)
                         .opacity(isInputAnimating ? 0.3 : 1.0)
@@ -72,34 +68,14 @@ struct InformationView: View {
                         NavigationLink {
                             StartView()
                         } label: {
-                            Button {
-                            // 다음 화면으로
-                            } label: {
-                                HStack {
-                                    Text(">>>")
-                                        .foregroundColor(Color("TitleColor"))
-                                        .padding(.trailing, 10)
-                                    NavigationLink{
-                                        StartView()
-                                    } label: {
-                                        Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
-                                            .overlay(
-                                                Rectangle()
-                                                    .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                                    .offset(y: 20)
-                                            )
-                                            .foregroundColor(.white)
-                                            .opacity(isButtonAnimating ? 0.3 : 1.0)
-                                            .onAppear {
-                                                Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
-                                                    isButtonAnimating.toggle()
-                                                }
-                                        }
-                                    }
-                                        
-                                }
-                                .font(.custom(.DungGeunMo, size: 30))
-                            }
+                            MyUnderlineText(
+                                text: "네, 제가 \(user.nickname) 맞습니다. (진행하기)",
+                                fontSize: 30,
+                                arrowColor: Color("TitleColor"),
+                                textColor: .white,
+                                underlineLen: 450,
+                                isBtnAnimating: true
+                            )
                         }
 
                         
@@ -111,19 +87,14 @@ struct InformationView: View {
                             isButtonAnimating = false
                             user.nickname = "" // 입력창의 닉네임도 지워줘야함
                         } label: {
-                            HStack {
-                                Text(">>>")
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 10)
-                                Text("아닙니다. 다시 입력하고 싶어요.")
-                                    .overlay(
-                                        Rectangle()
-                                            .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                            .offset(y: 20)
-                                    )
-                                    .foregroundColor(.white)
-                            }
-                            .font(.custom(.DungGeunMo, size: 30))
+                            MyUnderlineText(
+                                text: "아닙니다. 다시 입력하고 싶어요.",
+                                fontSize: 30,
+                                arrowColor: .gray,
+                                textColor: .white,
+                                underlineLen: 450,
+                                isBtnAnimating: false
+                            )
                             .padding(.top, 10)
                         }
                     }

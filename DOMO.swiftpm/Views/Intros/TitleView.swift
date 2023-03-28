@@ -26,21 +26,17 @@ struct TitleView: View {
                         }
                     }
                 
-                Text("TAP TO START")
-                    .font(.custom(.DungGeunMo, size: 30))
+                MyText(text: "TAP TO START", fontSize: 30)
                     .padding(.top, 40)
                     .foregroundColor(.white)
                 
-                Text("\" 너가 내 처음이닷 \"")
-                    .font(.custom(.DungGeunMo, size: 40))
+                MyText(text: "\" 너가 내 처음이닷 \"", fontSize: 40)
                     .padding(.top, 40)
                     .foregroundColor(.white)
                 
                 Spacer()
                 
-                Text("2023 © Team First Dot // All Rights Reserved")
-                    .font(.custom(.DungGeunMo, size: 20))
-                    .foregroundColor(.white)
+                MyText(text: "2023 © Team First Dot // All Rights Reserved", fontSize: 20)
                 
                 Spacer()
             }
