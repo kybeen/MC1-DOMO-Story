@@ -5,6 +5,7 @@
 //  Created by 김영빈 on 2023/03/27.
 //
 
+/* 타이틀 화면 */
 import SwiftUI
 
 struct TitleView: View {

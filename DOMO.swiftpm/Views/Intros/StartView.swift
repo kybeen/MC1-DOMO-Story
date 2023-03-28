@@ -5,16 +5,20 @@
 //  Created by 김영빈 on 2023/03/28.
 //
 
+/* 닉네임 입력 완료 후 시작 화면 뷰 */
 import SwiftUI
 
-struct SwiftUIView: View {
+struct StartView: View {
+    @EnvironmentObject var user: UserSettings
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("HIHI \(user.nickname)")
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct StartView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        StartView()
+            .environmentObject(UserSettings())
     }
 }

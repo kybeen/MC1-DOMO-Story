@@ -111,7 +111,7 @@ struct Baldan1View: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct Baldan1View_Previews: PreviewProvider {
     static var previews: some View {
         Baldan1View()
     }

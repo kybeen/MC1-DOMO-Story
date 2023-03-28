@@ -5,11 +5,11 @@
 //  Created by 김영빈 on 2023/03/27.
 //
 
+/* 유저 닉네임 입력 화면 */
 import SwiftUI
 
 struct InformationView: View {
     @EnvironmentObject var user: UserSettings // 닉네임 입력
-//    @State var nickname: String = "" // 닉네임 입력
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
@@ -69,40 +69,47 @@ struct InformationView: View {
                 if (nicknameDone == true) {
                     VStack(alignment: .leading) {
                         /* 진행 버튼 */
-                        Button {
-                            // 다음 화면으로
+                        NavigationLink {
+                            StartView()
                         } label: {
-                            HStack {
-                                Text(">>>")
-                                    .foregroundColor(Color("TitleColor"))
-                                    .padding(.trailing, 10)
-                                NavigationLink{
-                                    ScriptSampleView()
-                                } label: {
-                                    Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
-                                        .overlay(
-                                            Rectangle()
-                                                .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                                .offset(y: 20)
-                                        )
-                                        .foregroundColor(.white)
-                                        .opacity(isButtonAnimating ? 0.3 : 1.0)
-                                        .onAppear {
-                                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
-                                                isButtonAnimating.toggle()
-                                            }
+                            Button {
+                            // 다음 화면으로
+                            } label: {
+                                HStack {
+                                    Text(">>>")
+                                        .foregroundColor(Color("TitleColor"))
+                                        .padding(.trailing, 10)
+                                    NavigationLink{
+                                        StartView()
+                                    } label: {
+                                        Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
+                                            .overlay(
+                                                Rectangle()
+                                                    .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
+                                                    .offset(y: 20)
+                                            )
+                                            .foregroundColor(.white)
+                                            .opacity(isButtonAnimating ? 0.3 : 1.0)
+                                            .onAppear {
+                                                Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
+                                                    isButtonAnimating.toggle()
+                                                }
+                                        }
                                     }
+                                        
                                 }
-                                    
+                                .font(.custom(.DungGeunMo, size: 30))
                             }
-                            .font(.custom(.DungGeunMo, size: 30))
                         }
+
+                        
+
                         
                         /* 취소 버튼 */
                         Button {
                             nicknameDone = false
                             isButtonAnimating = false
-                            user.nickname = "" // 닉네임 지워줘야함 State값 변경하는 방법 찾기
+                            user.nickname = "" // 입력창의 닉네임도 지워줘야함
                         } label: {
                             HStack {
                                 Text(">>>")
