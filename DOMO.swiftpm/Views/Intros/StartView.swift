@@ -12,7 +12,7 @@ struct StartView: View {
     @EnvironmentObject var user: UserSettings
     
     var body: some View {
-        Text("HIHI \(user.nickname)")
+        Text("TEST \(user.nickname)")
     }
 }
 
