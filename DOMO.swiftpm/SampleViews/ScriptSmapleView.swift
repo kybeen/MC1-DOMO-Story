@@ -62,12 +62,16 @@ struct ScriptSampleView: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                Text("REPLAY")
-                                    .font(.custom(.DungGeunMo, size: 30))
-                                    .foregroundColor(.white)
-                                    .underline()
-                                    .opacity(0.6)
-                                    .padding(.trailing, screenWidth * 0.03)
+                                ScriptButtonText(text: "REPLAY")
+                                    .padding(.trailing, screenWidth*0.02)
+                            }
+                            Button {
+                                refreshToken = true
+                                textduration = 0.5
+                                lettersShowing = 0
+                            } label: {
+                                ScriptButtonText(text: "NEXT")
+                                    .padding(.trailing, screenWidth*0.02)
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
@@ -95,8 +99,7 @@ struct ScriptSampleView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    NextButton()
-                        .position(x: 1160, y: 190)
+                   
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
