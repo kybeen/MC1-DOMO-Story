@@ -17,7 +17,7 @@ struct SeperatedTextField: View {
     
     var body: some View {
         HStack {
-            ForEach(0..<length) { i in
+            ForEach(0 ..< length) { i in
                 CharacterField(focused: _focused, index: i) { i, c in
                     focused = c.isEmpty ? i - 1 : i + 1
                     characters[i] = c

@@ -17,15 +17,16 @@ struct ScriptSampleView: View {
     var body: some View {
         ZStack {
             // 배경 사진
-            Image("background")
+            Image("BackgroundDoor")
                 .resizable()
                 .scaledToFill()
+                .frame(width: screenWidth, height: screenHeight)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    Image("domokun")
+                    Image("DomoStand")
                         .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.5)
