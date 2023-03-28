@@ -5,6 +5,7 @@
 //  Created by 김영빈 on 2023/03/27.
 //
 
+import NavigationStack
 import SwiftUI
 
 struct InformationView: View {
@@ -13,21 +14,21 @@ struct InformationView: View {
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
-            /* 배경색 */
+            // 배경색
             Color.black
                 .ignoresSafeArea()
-            
+
             VStack(alignment: .leading) {
                 Text("안녕하세요, 러너님. \n닉네임이 무엇인가요?")
                     .foregroundColor(.white)
                     .font(.custom(.DungGeunMo, size: 35))
                     .padding(.leading, 60)
                     .padding(.top, 60)
-                
-                /* 입력폼 */
+
+                // 입력폼
                 HStack {
                     Text(">>>")
                         .foregroundColor(.gray)
@@ -36,15 +37,15 @@ struct InformationView: View {
                         .padding(.trailing, 10)
                         .opacity(isInputAnimating ? 0.3 : 1.0)
                         .onAppear {
-                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
-                                if (nicknameDone==false) {
+                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
+                                if nicknameDone == false {
                                     isInputAnimating.toggle()
                                 }
                             }
                         }
-                    
+
                     SeperatedTextField(length: 8, string: $user.nickname)
-                    
+
                     // 확인 버튼
                     Button {
                         if user.nickname != "" {
@@ -62,13 +63,12 @@ struct InformationView: View {
                             )
                             .padding(.leading, 25)
                             .foregroundColor(.gray)
-
                     }
                 }
-                
-                if (nicknameDone == true) {
+
+                if nicknameDone == true {
                     VStack(alignment: .leading) {
-                        /* 진행 버튼 */
+                        // 진행 버튼
                         Button {
                             // 다음 화면으로
                         } label: {
@@ -76,9 +76,7 @@ struct InformationView: View {
                                 Text(">>>")
                                     .foregroundColor(Color("TitleColor"))
                                     .padding(.trailing, 10)
-                                NavigationLink{
-                                    ScriptSampleView()
-                                } label: {
+                                PushView(destination: Baldan1View()) {
                                     Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
                                         .overlay(
                                             Rectangle()
@@ -88,17 +86,16 @@ struct InformationView: View {
                                         .foregroundColor(.white)
                                         .opacity(isButtonAnimating ? 0.3 : 1.0)
                                         .onAppear {
-                                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
+                                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
                                                 isButtonAnimating.toggle()
                                             }
-                                    }
+                                        }
                                 }
-                                    
                             }
                             .font(.custom(.DungGeunMo, size: 30))
                         }
-                        
-                        /* 취소 버튼 */
+
+                        // 취소 버튼
                         Button {
                             nicknameDone = false
                             isButtonAnimating = false
@@ -123,7 +120,6 @@ struct InformationView: View {
                     .padding(.top, 30)
                     .padding(.leading, 60)
                 }
-                
             }
         }
     }
@@ -133,5 +129,7 @@ struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
             .environmentObject(UserSettings())
+            .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }
