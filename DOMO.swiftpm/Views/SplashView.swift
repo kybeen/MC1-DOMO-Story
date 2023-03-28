@@ -1,5 +1,5 @@
 //
-//  splash.swift
+//  SplashView.swift
 //  DOMO
 //
 //  Created by 박상원 on 2023/03/27.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct splash: View {
+struct SplashView: View {
     var body: some View {
         NavigationView {
             NavigationLink {
-                ContentView()
+                ScriptSampleView()
             } label: {
                 Text("시작하기")
                     .font(.largeTitle)
@@ -21,9 +21,9 @@ struct splash: View {
     }
 }
 
-struct splash_Previews: PreviewProvider {
+struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        splash()
+        SplashView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
