@@ -28,10 +28,19 @@ struct Baldan1View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
-            Image(domoImage)
-                .resizable()
-                .scaledToFit()
-                .frame(height: screenHeight * 0.5)
+
+            VStack {
+                Spacer()
+                HStack {
+                    Image(domoImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.7)
+                        .padding(.leading, 100)
+                        .padding(.bottom, 00)
+                }
+            }
+
             VStack {
                 Spacer()
 
