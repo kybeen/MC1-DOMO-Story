@@ -10,11 +10,8 @@ import SwiftUI
 struct SplashView: View {
     var body: some View {
         NavigationView {
-            NavigationLink {
-                ScriptSampleView()
-            } label: {
-                Text("시작하기")
-                    .font(.largeTitle)
+            NavigationLink(destination: InformationView()) {
+                TitleView()
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
