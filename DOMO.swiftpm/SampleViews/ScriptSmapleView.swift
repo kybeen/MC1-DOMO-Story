@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct ScriptSampleView: View {
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -97,9 +97,9 @@ struct ContentView: View {
     }
 }
 
-struct Previews_ContentView_Previews: PreviewProvider {
+struct Previews_ScriptSampleView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ScriptSampleView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

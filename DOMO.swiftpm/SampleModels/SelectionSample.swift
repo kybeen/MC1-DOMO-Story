@@ -24,10 +24,10 @@ enum SelectionSample: CaseIterable {
     
     var dstView: some View {
         switch self {
-        case .cute: return ContentView()
-        case .power: return ContentView()
-        case .hip: return ContentView()
-        case .marry: return ContentView()
+        case .cute: return Text("hi")
+        case .power: return Text("hi")
+        case .hip: return Text("hi")
+        case .marry: return Text("hi")
         }
     }
 }
