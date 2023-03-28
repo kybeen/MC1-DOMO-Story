@@ -76,19 +76,24 @@ struct InformationView: View {
                                 Text(">>>")
                                     .foregroundColor(Color("TitleColor"))
                                     .padding(.trailing, 10)
-                                Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
-                                    .overlay(
-                                        Rectangle()
-                                            .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                            .offset(y: 20)
-                                    )
-                                    .foregroundColor(.white)
-                                    .opacity(isButtonAnimating ? 0.3 : 1.0)
-                                    .onAppear {
-                                        Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
-                                            isButtonAnimating.toggle()
-                                        }
+                                NavigationLink{
+                                    ScriptSampleView()
+                                } label: {
+                                    Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
+                                        .overlay(
+                                            Rectangle()
+                                                .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
+                                                .offset(y: 20)
+                                        )
+                                        .foregroundColor(.white)
+                                        .opacity(isButtonAnimating ? 0.3 : 1.0)
+                                        .onAppear {
+                                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
+                                                isButtonAnimating.toggle()
+                                            }
                                     }
+                                }
+                                    
                             }
                             .font(.custom(.DungGeunMo, size: 30))
                         }
