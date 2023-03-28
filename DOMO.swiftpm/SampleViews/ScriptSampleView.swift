@@ -9,7 +9,7 @@ struct ScriptSampleView: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    
+
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
@@ -63,15 +63,15 @@ struct ScriptSampleView: View {
                                 lettersShowing = 0
                             } label: {
                                 ScriptButtonText(text: "REPLAY")
-                                    .padding(.trailing, screenWidth*0.02)
+                                    .padding(.trailing, screenWidth * 0.02)
                             }
-                            Button {
-                                refreshToken = true
-                                textduration = 0.5
-                                lettersShowing = 0
+                            NavigationLink {
+                                // NEXT 버튼 클릭하면 보여줄 뷰
+                                SelectionSampleView()
+                                    .navigationBarBackButtonHidden()
                             } label: {
                                 ScriptButtonText(text: "NEXT")
-                                    .padding(.trailing, screenWidth*0.02)
+                                    .padding(.trailing, screenWidth * 0.02)
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
@@ -99,7 +99,6 @@ struct ScriptSampleView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                   
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
