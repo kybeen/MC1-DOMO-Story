@@ -9,15 +9,20 @@ struct ScriptSampleView: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
+    
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
     @State var script = "제가 알기론 라면은 일반 가정에서도 손쉽게 해먹을 수 있어서 \n게으른 서민들에게 인기가 매우 높다고 들었습니다만? 틀렸습니까?"
+    // 배경화면
+    let backgroundIamge = "BackgroundC5"
+    // 도모쿤 이미지
+    let domoImage = "DomoHowl"
 
     var body: some View {
         ZStack {
             // 배경 사진
-            Image("BackgroundDoor")
+            Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
@@ -26,7 +31,7 @@ struct ScriptSampleView: View {
                 // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    Image("DomoStand")
+                    Image(domoImage)
                         .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.5)

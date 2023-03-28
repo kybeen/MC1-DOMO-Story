@@ -34,7 +34,7 @@ struct Baldan1View: View {
                 .frame(height: screenHeight * 0.5)
             VStack {
                 Spacer()
-
+                
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
