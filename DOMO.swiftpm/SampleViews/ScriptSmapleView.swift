@@ -90,6 +90,14 @@ struct ScriptSampleView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text(">")
+                            .font(.custom(.DungGeunMo, size: 40))
+                            .foregroundColor(.white)
+                    }
+                    .position(x: 1160, y: 190)
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
