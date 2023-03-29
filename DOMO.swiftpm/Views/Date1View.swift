@@ -1,7 +1,11 @@
 import SwiftUI
+import NavigationStack
 
 struct Date1View: View {
-
+    @State var lettersShowing: Double = 0
+    @State var textduration: Double = 1.0
+    @State var refreshToken: Bool = false
+    
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
@@ -11,11 +15,14 @@ struct Date1View: View {
     let name = "착각에 빠진 도모쿤♫~♪~!"
     // 대사
     let script = "우리 어쩌면 서로 35(사모)하고 있을 수도? \n이제 더 이상 머뭇거릴 수 없어!"
-
+    
+    let backgroundIamge = "BackgroundCafe"
+    // 도모쿤 이미지
+    let domoImage = "DomoShout"
     var body: some View {
         ZStack {
             // 배경 사진
-            Image("BackgroundCafe")
+            Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
             VStack {
@@ -23,7 +30,7 @@ struct Date1View: View {
                 // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    Image("DomoShout")
+                    Image(domoImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width:665, height:600)
@@ -36,7 +43,11 @@ struct Date1View: View {
                     Rectangle()
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
-                        .onTapGesture {}
+                        .onTapGesture {
+                            textduration = refreshToken ? 3.0 : 1.0
+                            lettersShowing += Double(script.count)
+                            refreshToken = false
+                        }
                     VStack(alignment: .leading, spacing: 0) {
                         // 대화창 상단
                         HStack {
@@ -48,14 +59,16 @@ struct Date1View: View {
                             Spacer()
                             // 리플레이 버튼
                             Button {
-                                typeWriter()
+                                refreshToken = true
+                                textduration = 0.5
+                                lettersShowing = 0
                             } label: {
-                                Text("REPLAY")
-                                    .font(.custom(.DungGeunMo, size: 30))
-                                    .foregroundColor(.white)
-                                    .underline()
-                                    .opacity(0.6)
-                                    .padding(.trailing, screenWidth * 0.03)
+                                ScriptButtonText(text: "REPLAY")
+                                    .padding(.trailing, screenWidth * 0.02)
+                            }
+                            PushView(destination: Date2View()) {
+                                ScriptButtonText(text: "NEXT")
+                                    .padding(.trailing, screenWidth * 0.02)
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
@@ -69,33 +82,26 @@ struct Date1View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                typeWriter()
+                                textduration = 3.0
+                                lettersShowing += Double(script.count)
                             }
                         // 대사
-                        Text(text)
-                            .font(.custom(.gulim, size: 35))
-                            .lineSpacing(10.0)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, screenWidth * 0.05)
+                        AppearingText(
+                            fullText: script,
+                            numberOfLettersShow: lettersShowing,
+                            font: .custom(.gulim, size: 35)
+                        )
+                        .lineSpacing(10.0)
+                        .foregroundColor(.white)
+                        .fixedSize()
+                        .padding(.horizontal, screenWidth * 0.05)
+                        .animation(.linear(duration: textduration), value: lettersShowing)
                     }
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
-    }
-
-    func typeWriter(at position: Int = 0) {
-        if position == 0 {
-            text = ""
-        }
-        if position < script.count {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                text.append(script[position])
-                typeWriter(at: position + 1)
-            }
-        }
     }
 }
 
@@ -103,11 +109,5 @@ struct Previews_Date1View_Previews: PreviewProvider {
     static var previews: some View {
         Date1View()
             .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
-
-extension String {
-    subscript(offset: Int) -> Character {
-        self[index(startIndex, offsetBy: offset)]
     }
 }
