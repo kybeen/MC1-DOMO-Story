@@ -6,6 +6,7 @@
 //
 
 /* 닉네임 입력 완료 후 시작 화면 뷰 */
+import NavigationStack
 import SwiftUI
 
 struct StartView: View {
@@ -25,10 +26,7 @@ struct StartView: View {
                     .padding(.top, 60)
                 
                 
-                
-                NavigationLink {
-                    ScriptSampleView()
-                } label: {
+                PushView(destination: Baldan1View()) {
                     MyUnderlineText(
                         text: "아니. 왜요? (시작하기)",
                         fontSize: 30,
