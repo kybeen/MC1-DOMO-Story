@@ -6,6 +6,7 @@
 //
 
 /* 유저 닉네임 입력 화면 */
+import NavigationStack
 import SwiftUI
 
 struct InformationView: View {
@@ -62,12 +63,10 @@ struct InformationView: View {
                     }
                 }
                 
-                if (nicknameDone == true) {
+                if nicknameDone == true {
                     VStack(alignment: .leading) {
                         /* 진행 버튼 */
-                        NavigationLink {
-                            StartView()
-                        } label: {
+                        PushView(destination: StartView()) {
                             MyUnderlineText(
                                 text: "네, 제가 \(user.nickname) 맞습니다. (진행하기)",
                                 fontSize: 30,
@@ -77,8 +76,6 @@ struct InformationView: View {
                                 isBtnAnimating: true
                             )
                         }
-
-                        
 
                         
                         /* 취소 버튼 */
@@ -101,7 +98,6 @@ struct InformationView: View {
                     .padding(.top, 30)
                     .padding(.leading, 60)
                 }
-                
             }
         }
     }
