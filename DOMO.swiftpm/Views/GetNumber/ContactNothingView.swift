@@ -39,28 +39,36 @@ struct ContactNothingView: View {
                 .overlay(
                     Rectangle()
                         .foregroundColor(.black)
-                        .opacity(0.5)
+                        .opacity(0.7)
                 )
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    Image(domoImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: screenWidth * 0.6, height: screenHeight * 0.5)
+                    VStack() {
+                        Image(domoImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: screenHeight * 0.8)
+                            .padding(.trailing, 100)
                         // 도모 회전
-                        .rotationEffect(.degrees(isRotating))
-                        .onAppear {
-                            // 도모 회전 소요 시간
-                            withAnimation(.linear(duration: 1)
-                                .speed(1)) {
-                                    // 회전할 각도
-                                    isRotating = -60.0
-                                }
-                        }
+                            .rotationEffect(.degrees(isRotating))
+                            .onAppear {
+                                // 도모 회전 소요 시간
+                                withAnimation(.linear(duration: 1)
+                                    .speed(1)) {
+                                        // 회전할 각도
+                                        isRotating = -60.0
+                                    }
+                            }
+                        Spacer()
+                            .frame(height: screenHeight * 0.12)
+                    }
                 }
+            }
+            VStack() {
+                Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -90,8 +98,8 @@ struct ContactNothingView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            // 넥스트 버튼 -> SelectionContactView
-                            PushView(destination: ContactDreamView()) {
+                            // 넥스트 버튼 -> 이전 화면
+                            PopView() {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }

@@ -38,12 +38,16 @@ struct ContactImessageView: View {
                 Spacer()
                 // 도모쿤을 위한 자리
                 HStack {
-                    Spacer()
+                    // 도모쿤 가운데 위치
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.5)
+                        .frame(height: screenHeight * 0.9)
+                        .padding(.trailing, -500)
                 }
+            }
+            VStack {
+                Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -104,15 +108,10 @@ struct ContactImessageView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    /* 구식 Next Button
-                    NextButton()
-                        .position(x: 1160, y: 190)
-                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }

@@ -12,8 +12,6 @@ struct GetNumberView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    // pop을 위한 변수
-    private static let viewID = "GetNumberViewID"
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -44,8 +42,11 @@ struct GetNumberView: View {
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.5)
+                        .frame(height: screenHeight * 0.9)
                 }
+            }
+            VStack {
+                Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -106,15 +107,10 @@ struct GetNumberView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    /* 구식 Next Button
-                    NextButton()
-                        .position(x: 1160, y: 190)
-                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }

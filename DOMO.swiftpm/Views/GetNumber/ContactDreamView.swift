@@ -5,6 +5,8 @@
 //  Created by OhSuhyun on 2023/03/28.
 //
 
+// 미사용 -> id를 사용한 pop 처리 필요
+
 import SwiftUI
 import NavigationStack
 
@@ -78,6 +80,12 @@ struct ContactDreamView: View {
                                 ScriptButtonText(text: "BACK")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            /* 간단한 pop -> 이전 화면으로
+                            PopView {
+                                ScriptButtonText(text: "BACK")
+                                    .padding(.trailing, screenWidth * 0.02)
+                            }
+                             */
                             /* 넥스트 버튼 -> SelectionContactView
                             PushView(destination: SelectionContactView()) {
                                 ScriptButtonText(text: "NEXT")
