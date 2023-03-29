@@ -11,7 +11,7 @@ import NavigationStack
 
 struct SplashView: View {
     var body: some View {
-        NavigationStackView(transitionType: .custom(.identity)) {
+        NavigationStackView(transitionType: .none) {
             PushView(destination: InformationView()) {
                 TitleView()
             }
