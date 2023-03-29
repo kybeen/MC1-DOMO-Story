@@ -14,7 +14,8 @@ struct MyUnderlineText: View {
     var fontSize: CGFloat // 폰트 크기
     var arrowColor: Color = .gray // >>> 화살표 색상
     var textColor: Color = .white // 텍스트 색상 (기본 흰색)
-    var underlineLen: CGFloat // 밑줄 길이
+    //var underlineLen: CGFloat // 밑줄 길이
+    //lazy var underlineLen: CGFloat = CGFloat(text.count) * fontSize
     var isBtnAnimating: Bool // 버튼 깜빡이 여부
     
     var body: some View {
@@ -23,12 +24,7 @@ struct MyUnderlineText: View {
                 .foregroundColor(arrowColor)
                 .padding(.trailing, 10)
             Text(text)
-                // 밑줄 그어주기
-                .overlay(
-                    Rectangle()
-                        .frame(width: underlineLen, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                        .offset(y: 20)
-                )
+                .underline() // 밑줄 그어주기
                 .foregroundColor(textColor)
                 .opacity(isButtonAnimating ? 0.0 : 1.0)
                 .onAppear {
@@ -52,7 +48,7 @@ struct MyUnderlineText_Previews: PreviewProvider {
                 fontSize: 30,
                 arrowColor: Color("TitleColor"),
                 textColor: .white,
-                underlineLen: 380,
+                //underlineLen: 380,
                 isBtnAnimating: true
             )
         }

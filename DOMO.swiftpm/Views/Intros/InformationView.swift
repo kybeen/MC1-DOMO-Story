@@ -18,19 +18,19 @@ struct InformationView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             // 배경색
-            Color.black
-                .ignoresSafeArea()
+            Color.black.ignoresSafeArea()
 
             VStack(alignment: .leading) {
-                MyText(text: "안녕하세요, 러너님. \n닉네임이 무엇인가요?", fontSize: 35)
-                    .padding(.leading, 60)
-                    .padding(.top, 60)
+                MyText(text: "안녕하세요, 러너님. \n닉네임이 무엇인가요?", fontSize: 40)
+                    .lineSpacing(16)
+                    .padding(.top, 120)
+                    .padding(.leading, 100)
+                    .padding(.bottom, 50)
 
                 // 입력폼
                 HStack {
-                    MyText(text: ">>>", fontSize: 35, textColor: .gray)
-                        .padding(.leading, 60)
-                        .padding(.trailing, 10)
+                    MyText(text: ">>>", fontSize: 40, textColor: .gray)
+                        .padding(.leading, 100)
                         .opacity(isInputAnimating ? 0.3 : 1.0)
                         .onAppear {
                             Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
@@ -41,6 +41,7 @@ struct InformationView: View {
                         }
 
                     SeperatedTextField(length: 8, string: $user.nickname)
+                        .padding(.leading, 16)
 
                     // 확인 버튼
                     Button {
@@ -52,12 +53,8 @@ struct InformationView: View {
                     } label: {
                         Text("확인")
                             .font(.custom(.DungGeunMo, size: 30))
-                            .overlay(
-                                Rectangle()
-                                    .frame(width: 60, height: 3)
-                                    .offset(y: 20)
-                            )
-                            .padding(.leading, 25)
+                            .underline()
+                            .padding(.leading, 40)
                             .foregroundColor(.gray)
                     }
                 }
@@ -68,10 +65,9 @@ struct InformationView: View {
                         PushView(destination: StartView()) {
                             MyUnderlineText(
                                 text: "네, 제가 \(user.nickname) 맞습니다. (진행하기)",
-                                fontSize: 30,
+                                fontSize: 40,
                                 arrowColor: Color("TitleColor"),
                                 textColor: .white,
-                                underlineLen: 450,
                                 isBtnAnimating: true
                             )
                         }
@@ -85,17 +81,16 @@ struct InformationView: View {
                         } label: {
                             MyUnderlineText(
                                 text: "아닙니다. 다시 입력하고 싶어요.",
-                                fontSize: 30,
+                                fontSize: 40,
                                 arrowColor: .gray,
-                                textColor: .white,
-                                underlineLen: 450,
+                                textColor: .gray,
                                 isBtnAnimating: false
                             )
                             .padding(.top, 10)
                         }
                     }
-                    .padding(.top, 30)
-                    .padding(.leading, 60)
+                    .padding(.top, 80)
+                    .padding(.leading, 100)
                 }
             }
         }

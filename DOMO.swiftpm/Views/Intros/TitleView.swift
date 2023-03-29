@@ -25,10 +25,10 @@ struct TitleView: View {
                         }
                     }
                     .padding(.top, 100)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 42)
                 
                 MyText(text: "TAP TO START", fontSize: 28)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 74)
                     .foregroundColor(.white)
                 
                 MyText(text: "\" 너가 내 처음이닷 \"", fontSize: 40)
