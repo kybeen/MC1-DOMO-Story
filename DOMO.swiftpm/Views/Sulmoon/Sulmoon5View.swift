@@ -5,31 +5,35 @@
 //  Created by 박상원 on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
-struct Baldan1View: View {
+struct Sulmoon5View: View {
     @State var lettersShowing: Double = 0
-    @State private var textduration: Double = 1.0
+    @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    let backgroundIamge = "BackgroundC5"
-    let domoImage = "DomoHowl"
+
     // 이름
-    let name = "도모쿤♫~♪~!"
+    let name = "물음표 살인마 도모쿤♫~♪~!"
     // 대사
-    @State var script = "오늘부터 나 도모쿤이 아카데미를 접수해주겠어-!"
+    @State var script = "새로운 사람을 알아갈 때 무엇이 중요한지 말해주면 고맙겠다만?"
+    // 배경화면
+    let backgroundIamge = "BackgroundTable"
+    // 도모쿤 이미지
+    let domoImage = "DomoShoutReverse"
+
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
-
+                .frame(width: screenWidth)
             VStack {
                 Spacer()
                 HStack {
@@ -37,14 +41,12 @@ struct Baldan1View: View {
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.7)
-                        .padding(.trailing, 200)
+                        .frame(height: screenHeight * 0.73)
+                        .padding(.bottom, 50)
                 }
             }
-
             VStack {
                 Spacer()
-
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -74,7 +76,7 @@ struct Baldan1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Baldan2View()){
+                            PushView(destination: Sulmoon6View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -89,7 +91,7 @@ struct Baldan1View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 1.0
+                                textduration = 3.0
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -112,10 +114,9 @@ struct Baldan1View: View {
     }
 }
 
-struct Baldan1View_Previews: PreviewProvider {
+struct Sulmoon5View_Previews: PreviewProvider {
     static var previews: some View {
-        Baldan1View()
+        Sulmoon5View()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }
