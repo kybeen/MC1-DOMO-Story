@@ -34,9 +34,15 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/matteopuc/swiftui-navigation-stack", "1.0.0"..<"2.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "NavigationStack", package: "swiftui-navigation-stack")
+            ],
             path: "."
         )
     ]
