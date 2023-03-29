@@ -16,7 +16,6 @@ struct TitleView: View {
             Color("TitleColor")
             
             VStack {
-                
                 Image("domo_title1")
                     .opacity(isAnimating ? 0.3 : 1.0) // isAnimating값에 따라 투명도 변함
                     .onAppear { // 1초마다 타이머 동작하면서 isAnimating값 변경
