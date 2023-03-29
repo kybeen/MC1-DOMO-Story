@@ -33,7 +33,7 @@ struct Baldan4View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(height: screenHeight)
             VStack {
                 Spacer()
                 Image(domoImage)
