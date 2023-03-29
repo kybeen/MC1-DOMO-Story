@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct ContactNothingView: View {
     @State var lettersShowing: Double = 0
@@ -86,12 +87,13 @@ struct ContactNothingView: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                Text("REPLAY")
-                                    .font(.custom(.DungGeunMo, size: 30))
-                                    .foregroundColor(.white)
-                                    .underline()
-                                    .opacity(0.6)
-                                    .padding(.trailing, screenWidth * 0.03)
+                                ScriptButtonText(text: "REPLAY")
+                                    .padding(.trailing, screenWidth * 0.02)
+                            }
+                            // 넥스트 버튼 -> SelectionContactView
+                            PushView(destination: ContactDreamView()) {
+                                ScriptButtonText(text: "NEXT")
+                                    .padding(.trailing, screenWidth * 0.02)
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
@@ -119,8 +121,10 @@ struct ContactNothingView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
+                    /* 구식 Next Button
                     NextButton()
                         .position(x: 1160, y: 190)
+                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
