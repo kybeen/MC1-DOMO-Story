@@ -24,19 +24,10 @@ enum SelectPosterList: CaseIterable {
     
     var dstView: some View {
         switch self {
-        case .cute: return Text("hi")
-        case .power: return Text("hi")
-        case .hip: return Text("hi")
-        case .marry: return Text("hi")
+        case .cute: return PosterDisplayView(name: "귀여운 도모쿤♫~♪~!", poster: Image("PosterPicnic"), script: "『초절정 귀여움』을 보여주지")
+        case .power: return PosterDisplayView(name: "박력있는 도모쿤♫~♪~!", poster: Image("PosterDomo"), script: "크아앙..")
+        case .hip: return PosterDisplayView(name: "힙스터 도모쿤♫~♪~!", poster: Image("PosterBlue"), script: "나의 힙함을 보여주는 것쯤은 완전 - 여유 - 다.")
+        case .marry: return PosterDisplayView(name: "러블리 도모쿤♫~♪~!", poster: Image("PosterMarry"), script: "밀당은 없다 너 하나쯤은 내가 보살펴주마")
         }
     }
-    
-//    var imageItem: Image {
-//        switch self {
-//        case .cute: return Image("hi")
-//        case .power: return Image("hi")
-//        case .hip: return Image("hi")
-//        case .marry: return Image("hi")
-//        }
-//    }
 }
