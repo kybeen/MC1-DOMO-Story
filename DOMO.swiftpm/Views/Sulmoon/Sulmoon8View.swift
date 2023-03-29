@@ -74,7 +74,7 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Date1View()) {
+                            PushView(destination: PosterView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
