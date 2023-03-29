@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct SplashView: View {
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: InformationView()) {
+        NavigationStackView(transitionType: .custom(.identity)) {
+            PushView(destination: InformationView()) {
                 TitleView()
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
