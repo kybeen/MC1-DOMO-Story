@@ -14,34 +14,34 @@ struct InformationView: View {
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
-            /* 배경색 */
+            // 배경색
             Color.black
                 .ignoresSafeArea()
-            
+
             VStack(alignment: .leading) {
                 MyText(text: "안녕하세요, 러너님. \n닉네임이 무엇인가요?", fontSize: 35)
                     .padding(.leading, 60)
                     .padding(.top, 60)
-                
-                /* 입력폼 */
+
+                // 입력폼
                 HStack {
                     MyText(text: ">>>", fontSize: 35, textColor: .gray)
                         .padding(.leading, 60)
                         .padding(.trailing, 10)
                         .opacity(isInputAnimating ? 0.3 : 1.0)
                         .onAppear {
-                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
-                                if (nicknameDone==false) {
+                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
+                                if nicknameDone == false {
                                     isInputAnimating.toggle()
                                 }
                             }
                         }
-                    
+
                     SeperatedTextField(length: 8, string: $user.nickname)
-                    
+
                     // 확인 버튼
                     Button {
                         if user.nickname != "" {
@@ -59,7 +59,6 @@ struct InformationView: View {
                             )
                             .padding(.leading, 25)
                             .foregroundColor(.gray)
-
                     }
                 }
                 
@@ -107,5 +106,7 @@ struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
             .environmentObject(UserSettings())
+            .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }
