@@ -23,10 +23,10 @@ struct CharacterField: View {
         .multilineTextAlignment(.center)
         .overlay(
             Rectangle()
-                .frame(width: 50, height: 3)
-                .offset(y: 20)
+                .frame(width: 52, height: 4)
+                .offset(y: 30)
         )
-        .font(.custom(.DungGeunMo, size: 30))
+        .font(.custom(.DungGeunMo, size: 40))
         .focused($focused, equals: index)
         .onChange(of: character) { newValue in
             onChange(index, character)
@@ -36,7 +36,7 @@ struct CharacterField: View {
             }
         }
         .foregroundColor(.white)
-        .frame(width: 50)
+        .frame(width: 52)
         //.background(.green)
         
         

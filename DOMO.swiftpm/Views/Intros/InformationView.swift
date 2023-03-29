@@ -5,12 +5,12 @@
 //  Created by 김영빈 on 2023/03/27.
 //
 
+/* 유저 닉네임 입력 화면 */
 import NavigationStack
 import SwiftUI
 
 struct InformationView: View {
     @EnvironmentObject var user: UserSettings // 닉네임 입력
-//    @State var nickname: String = "" // 닉네임 입력
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
@@ -18,23 +18,19 @@ struct InformationView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             // 배경색
-            Color.black
-                .ignoresSafeArea()
+            Color.black.ignoresSafeArea()
 
             VStack(alignment: .leading) {
-                Text("안녕하세요, 러너님. \n닉네임이 무엇인가요?")
-                    .foregroundColor(.white)
-                    .font(.custom(.DungGeunMo, size: 35))
-                    .padding(.leading, 60)
-                    .padding(.top, 60)
+                MyText(text: "안녕하세요, 러너님. \n닉네임이 무엇인가요?", fontSize: 40)
+                    .lineSpacing(16)
+                    .padding(.top, 120)
+                    .padding(.leading, 100)
+                    .padding(.bottom, 50)
 
                 // 입력폼
                 HStack {
-                    Text(">>>")
-                        .foregroundColor(.gray)
-                        .font(.custom(.DungGeunMo, size: 35))
-                        .padding(.leading, 60)
-                        .padding(.trailing, 10)
+                    MyText(text: ">>>", fontSize: 40, textColor: .gray)
+                        .padding(.leading, 100)
                         .opacity(isInputAnimating ? 0.3 : 1.0)
                         .onAppear {
                             Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
@@ -45,6 +41,7 @@ struct InformationView: View {
                         }
 
                     SeperatedTextField(length: 8, string: $user.nickname)
+                        .padding(.leading, 16)
 
                     // 확인 버튼
                     Button {
@@ -56,69 +53,44 @@ struct InformationView: View {
                     } label: {
                         Text("확인")
                             .font(.custom(.DungGeunMo, size: 30))
-                            .overlay(
-                                Rectangle()
-                                    .frame(width: 60, height: 3)
-                                    .offset(y: 20)
-                            )
-                            .padding(.leading, 25)
+                            .underline()
+                            .padding(.leading, 40)
                             .foregroundColor(.gray)
                     }
                 }
-
+                
                 if nicknameDone == true {
                     VStack(alignment: .leading) {
-                        // 진행 버튼
-                        Button {
-                            // 다음 화면으로
-                        } label: {
-                            HStack {
-                                Text(">>>")
-                                    .foregroundColor(Color("TitleColor"))
-                                    .padding(.trailing, 10)
-                                PushView(destination: Baldan1View()) {
-                                    Text("네, 제가 \(user.nickname) 맞습니다. (진행하기)")
-                                        .overlay(
-                                            Rectangle()
-                                                .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                                .offset(y: 20)
-                                        )
-                                        .foregroundColor(.white)
-                                        .opacity(isButtonAnimating ? 0.3 : 1.0)
-                                        .onAppear {
-                                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
-                                                isButtonAnimating.toggle()
-                                            }
-                                        }
-                                }
-                            }
-                            .font(.custom(.DungGeunMo, size: 30))
+                        /* 진행 버튼 */
+                        PushView(destination: StartView()) {
+                            MyUnderlineText(
+                                text: "네, 제가 \(user.nickname) 맞습니다. (진행하기)",
+                                fontSize: 40,
+                                arrowColor: Color("TitleColor"),
+                                textColor: .white,
+                                isBtnAnimating: true
+                            )
                         }
 
-                        // 취소 버튼
+                        
+                        /* 취소 버튼 */
                         Button {
                             nicknameDone = false
                             isButtonAnimating = false
-                            user.nickname = "" // 닉네임 지워줘야함 State값 변경하는 방법 찾기
+                            user.nickname = "" // 입력창의 닉네임도 지워줘야함
                         } label: {
-                            HStack {
-                                Text(">>>")
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 10)
-                                Text("아닙니다. 다시 입력하고 싶어요.")
-                                    .overlay(
-                                        Rectangle()
-                                            .frame(width: 450, height: 3) // width 텍스트 길이에 맞게 수정 필요
-                                            .offset(y: 20)
-                                    )
-                                    .foregroundColor(.white)
-                            }
-                            .font(.custom(.DungGeunMo, size: 30))
+                            MyUnderlineText(
+                                text: "아닙니다. 다시 입력하고 싶어요.",
+                                fontSize: 40,
+                                arrowColor: .gray,
+                                textColor: .gray,
+                                isBtnAnimating: false
+                            )
                             .padding(.top, 10)
                         }
                     }
-                    .padding(.top, 30)
-                    .padding(.leading, 60)
+                    .padding(.top, 80)
+                    .padding(.leading, 100)
                 }
             }
         }
