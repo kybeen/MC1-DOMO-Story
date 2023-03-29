@@ -16,7 +16,6 @@ struct TitleView: View {
             Color("TitleColor")
             
             VStack {
-                Spacer()
                 
                 Image("domo_title1")
                     .opacity(isAnimating ? 0.3 : 1.0) // isAnimating값에 따라 투명도 변함
@@ -25,20 +24,20 @@ struct TitleView: View {
                             isAnimating.toggle()
                         }
                     }
+                    .padding(.top, 100)
+                    .padding(.bottom, 40)
                 
-                MyText(text: "TAP TO START", fontSize: 30)
-                    .padding(.top, 40)
+                MyText(text: "TAP TO START", fontSize: 28)
+                    .padding(.bottom, 40)
                     .foregroundColor(.white)
                 
                 MyText(text: "\" 너가 내 처음이닷 \"", fontSize: 40)
-                    .padding(.top, 40)
+                    .padding(.bottom, 30)
                     .foregroundColor(.white)
                 
-                Spacer()
-                
                 MyText(text: "2023 © Team First Dot // All Rights Reserved", fontSize: 20)
-                
-                Spacer()
+                    .padding(.bottom, 50)
+
             }
         }
         .ignoresSafeArea()
