@@ -1,14 +1,14 @@
 //
 //  SwiftUIView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by OhSuhyun on 2023/03/28.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon1View: View {
+struct ContactImessageView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
@@ -17,15 +17,15 @@ struct Sulmoon1View: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    
     // 이름
-    let name = "도모쿤♫~♪~!"
+    let name = "기세등등한 도모쿤♫~♪~!"
     // 대사
-    @State var script = "맞잡았던 손이 잊혀지지 않는다랄까. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
+    @State var script = "야레야레. 이놈의 인기 식지를 않는군 (훗)"
     // 배경화면
-    let backgroundIamge = "BackgroundCafe"
+    let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지
-    let domoImage = "DomoBack"
+    let domoImage = "DomoHowl"
 
     var body: some View {
         ZStack {
@@ -33,16 +33,17 @@ struct Sulmoon1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth, height: screenHeight)
             VStack {
                 Spacer()
+                // 도모쿤을 위한 자리
                 HStack {
-                    Spacer()
+                    // 도모쿤 가운데 위치
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.68)
-                        .padding(.trailing, 50)
+                        .frame(height: screenHeight * 0.9)
+                        .padding(.trailing, -500)
                 }
             }
             VStack {
@@ -76,7 +77,8 @@ struct Sulmoon1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Sulmoon2View()) {
+                            // 넥스트 버튼 -> Date1View
+                            PushView(destination: Date1View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -114,9 +116,9 @@ struct Sulmoon1View: View {
     }
 }
 
-struct Sulmoon1View_Previews: PreviewProvider {
+struct ContactImessageView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon1View()
+        ContactImessageView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

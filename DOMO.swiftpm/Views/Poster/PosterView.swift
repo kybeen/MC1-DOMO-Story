@@ -1,32 +1,27 @@
 //
-//  SwiftUIView.swift
+//  PosterView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by Chaeeun Shin on 2023/03/28.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon1View: View {
+struct PosterView: View {
     @State var lettersShowing: Double = 0
-    @State var textduration: Double = 1.0
+    @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    let backgroundIamge = "BackgroundMain"
+    let domoImage = "DomoStand"
     // 이름
-    let name = "도모쿤♫~♪~!"
+    let name = "설렘가득 도모쿤♫~♪~!"
     // 대사
-    @State var script = "맞잡았던 손이 잊혀지지 않는다랄까. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
-    // 배경화면
-    let backgroundIamge = "BackgroundCafe"
-    // 도모쿤 이미지
-    let domoImage = "DomoBack"
-
+    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다.)"
     var body: some View {
         ZStack {
             // 배경 사진
@@ -34,19 +29,23 @@ struct Sulmoon1View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
-            VStack {
+
+            HStack {
                 Spacer()
-                HStack {
+                VStack {
                     Spacer()
-                    Image(domoImage)
+                    Image("DomoStand")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.68)
-                        .padding(.trailing, 50)
+                        .frame(height: screenHeight * 0.5)
                 }
+                .padding(.bottom, 89)
             }
+            .padding(.trailing, 354)
+            
             VStack {
                 Spacer()
+
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -76,7 +75,7 @@ struct Sulmoon1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Sulmoon2View()) {
+                            PushView(destination: SelectPosterView()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -114,9 +113,10 @@ struct Sulmoon1View: View {
     }
 }
 
-struct Sulmoon1View_Previews: PreviewProvider {
+struct Poste1View_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon1View()
+        PosterView()
             .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }

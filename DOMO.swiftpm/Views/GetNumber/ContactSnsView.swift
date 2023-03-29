@@ -1,31 +1,33 @@
 //
 //  SwiftUIView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by OhSuhyun on 2023/03/28.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon1View: View {
+struct ContactSnsView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    // 도모 회전 각도 변수
+    @State private var isRotating = 0.0
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    
     // 이름
-    let name = "도모쿤♫~♪~!"
+    let name = "음침한 도모쿤♫~♪~!"
     // 대사
-    @State var script = "맞잡았던 손이 잊혀지지 않는다랄까. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
+    @State var script = "내가 음.침.하다고?"
     // 배경화면
-    let backgroundIamge = "BackgroundCafe"
+    let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지
-    let domoImage = "DomoBack"
+    let domoImage = "DomoSide"
 
     var body: some View {
         ZStack {
@@ -33,19 +35,36 @@ struct Sulmoon1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth, height: screenHeight)
+            Color.black
+                .opacity(0.7)
             VStack {
                 Spacer()
+                // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    Image(domoImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: screenHeight * 0.68)
-                        .padding(.trailing, 50)
+                    VStack() {
+                        Image(domoImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: screenHeight * 0.8)
+                            .padding(.trailing, 100)
+                        // 도모 회전
+                            .rotationEffect(.degrees(isRotating))
+                            .onAppear {
+                                // 도모 회전 소요 시간
+                                withAnimation(.linear(duration: 1)
+                                    .speed(1)) {
+                                        // 회전할 각도
+                                        isRotating = -60.0
+                                    }
+                            }
+                        Spacer()
+                            .frame(height: screenHeight * 0.12)
+                    }
                 }
             }
-            VStack {
+            VStack() {
                 Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
@@ -76,7 +95,8 @@ struct Sulmoon1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Sulmoon2View()) {
+                            // 넥스트 버튼 -> 이전 화면
+                            PopView() {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -106,17 +126,22 @@ struct Sulmoon1View: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
+                    /* 구식 Next Button
+                    NextButton()
+                        .position(x: 1160, y: 190)
+                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
 
-struct Sulmoon1View_Previews: PreviewProvider {
+struct ContactSnsView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon1View()
+        ContactSnsView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
