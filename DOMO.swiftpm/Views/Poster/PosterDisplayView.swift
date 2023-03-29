@@ -1,50 +1,65 @@
 //
-//  SwiftUIView.swift
+//  PosterDisplayView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by Chaeeun Shin on 2023/03/29.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon8View: View {
+struct PosterDisplayView: View {
     @State var lettersShowing: Double = 0
-    @State var textduration: Double = 1.0
+    @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
-    // 이름
-    let name = "김칫국 도모쿤♫~♪~!"
-    // 대사
-    @State var script = "아닛! 그녀가 나 도모쿤이 이상형이라고 돌려 말한 게 아닐까??!!\n오오옷!! 끼요오오옷~~~!!!!!"
-    // 배경화면
-    let backgroundIamge = "BackgroundLove"
-    // 도모쿤 이미지
-    let domoImage = "DomoOhyesReverse"
-
+    let backgroundIamge = "BackgroundMain"
+    let domoImage = "DomoStand"
+    // 이름, 포스터, 대사 입력받기
+    var name: String
+    var poster: Image
+    var script: String
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(height: screenHeight)
+
+            HStack {
+                Spacer()
+                VStack {
+                    Spacer()
+                    Image("DomoStand")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.5)
+                }
+                .padding(.bottom, 171)
+            }
+            .padding(.trailing, 45)
+            
+            Color.black
+                .opacity(0.7)
+            
             VStack {
                 Spacer()
-                Image(domoImage)
+                poster
                     .resizable()
                     .scaledToFit()
-                    .frame(height: screenHeight * 0.65)
-                    .padding(.bottom, 160)
-                    .padding(.leading, 200)
+                    .frame(height: screenHeight * 0.55)
+                
             }
+            .padding(.bottom, 320)
+            
+            
             VStack {
                 Spacer()
+
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -74,7 +89,7 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: PosterView()) {
+                            PushView(destination: GetNumberView()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -89,7 +104,7 @@ struct Sulmoon8View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 3.0
+                                textduration = 2.5
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -112,9 +127,11 @@ struct Sulmoon8View: View {
     }
 }
 
-struct Sulmoon8View_Previews: PreviewProvider {
+struct PosterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon8View()
+        PosterDisplayView(name: "러블리 도모쿤♫~♪~!", poster: Image("PosterMarry"), script: "나 도모쿤이랑 결혼하면 행복은 보장된 것. 셋 셀테니 대답해주시죠?\n하나. 둘.. 둘 반의 반.. 반의 반의 반.. 반의 반의 당근당근.")
             .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }
+

@@ -1,50 +1,51 @@
 //
-//  SwiftUIView.swift
+//  PosterView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by Chaeeun Shin on 2023/03/28.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon8View: View {
+struct PosterView: View {
     @State var lettersShowing: Double = 0
-    @State var textduration: Double = 1.0
+    @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    let backgroundIamge = "BackgroundMain"
+    let domoImage = "DomoStand"
     // 이름
-    let name = "김칫국 도모쿤♫~♪~!"
+    let name = "설렘가득 도모쿤♫~♪~!"
     // 대사
-    @State var script = "아닛! 그녀가 나 도모쿤이 이상형이라고 돌려 말한 게 아닐까??!!\n오오옷!! 끼요오오옷~~~!!!!!"
-    // 배경화면
-    let backgroundIamge = "BackgroundLove"
-    // 도모쿤 이미지
-    let domoImage = "DomoOhyesReverse"
-
+    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다.)"
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
-            VStack {
+                .frame(height: screenHeight)
+
+            HStack {
                 Spacer()
-                Image(domoImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: screenHeight * 0.65)
-                    .padding(.bottom, 160)
-                    .padding(.leading, 200)
+                VStack {
+                    Spacer()
+                    Image("DomoStand")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.5)
+                }
+                .padding(.bottom, 89)
             }
+            .padding(.trailing, 354)
+            
             VStack {
                 Spacer()
+
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -74,7 +75,7 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: PosterView()) {
+                            PushView(destination: SelectPosterView()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -89,7 +90,7 @@ struct Sulmoon8View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 3.0
+                                textduration = 1.0
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -112,9 +113,10 @@ struct Sulmoon8View: View {
     }
 }
 
-struct Sulmoon8View_Previews: PreviewProvider {
+struct Poste1View_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon8View()
+        PosterView()
             .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }

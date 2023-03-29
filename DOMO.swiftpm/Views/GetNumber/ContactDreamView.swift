@@ -1,14 +1,16 @@
 //
 //  SwiftUIView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by OhSuhyun on 2023/03/28.
 //
 
-import NavigationStack
+// 미사용 -> id를 사용한 pop 처리 필요
+
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon8View: View {
+struct ContactDreamView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
@@ -17,15 +19,15 @@ struct Sulmoon8View: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    
     // 이름
-    let name = "김칫국 도모쿤♫~♪~!"
+    let name = "어리둥절한 도모쿤♫~♪~!"
     // 대사
-    @State var script = "아닛! 그녀가 나 도모쿤이 이상형이라고 돌려 말한 게 아닐까??!!\n오오옷!! 끼요오오옷~~~!!!!!"
+    @State var script = "뭔가 안 좋은 꿈(장래희망 아님)을 꾼 것 같다-랄까.\n다시 고르는 게 좋을 것 같은 기분이다제."
     // 배경화면
-    let backgroundIamge = "BackgroundLove"
+    let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지
-    let domoImage = "DomoOhyesReverse"
+    let domoImage = "DomoLie"
 
     var body: some View {
         ZStack {
@@ -33,18 +35,17 @@ struct Sulmoon8View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(width: screenWidth, height: screenHeight)
             VStack {
                 Spacer()
-                Image(domoImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: screenHeight * 0.65)
-                    .padding(.bottom, 160)
-                    .padding(.leading, 200)
-            }
-            VStack {
-                Spacer()
+                // 도모쿤을 위한 자리
+                HStack {
+                    // 도모쿤 가운데 위치
+                    Image(domoImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.5)
+                }
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -74,10 +75,23 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: PosterView()) {
+                            // 백 버튼 -> GetNumberView
+                            PopView(destination: .view(withId: "GetNumberViewID")) {
+                                ScriptButtonText(text: "BACK")
+                                    .padding(.trailing, screenWidth * 0.02)
+                            }
+                            /* 간단한 pop -> 이전 화면으로
+                            PopView {
+                                ScriptButtonText(text: "BACK")
+                                    .padding(.trailing, screenWidth * 0.02)
+                            }
+                             */
+                            /* 넥스트 버튼 -> SelectionContactView
+                            PushView(destination: SelectionContactView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                             */
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -104,17 +118,22 @@ struct Sulmoon8View: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
+                    /* 구식 Next Button
+                    NextButton()
+                        .position(x: 1160, y: 190)
+                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
 
-struct Sulmoon8View_Previews: PreviewProvider {
+struct ContactDreamView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon8View()
+        ContactDreamView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -1,31 +1,33 @@
 //
 //  SwiftUIView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by OhSuhyun on 2023/03/28.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon8View: View {
+struct ContactNothingView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    // 도모 회전 각도 변수
+    @State private var isRotating = 0.0
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    
     // 이름
-    let name = "김칫국 도모쿤♫~♪~!"
+    let name = "우울한 도모쿤♫~♪~!"
     // 대사
-    @State var script = "아닛! 그녀가 나 도모쿤이 이상형이라고 돌려 말한 게 아닐까??!!\n오오옷!! 끼요오오옷~~~!!!!!"
+    @State var script = "아무 일도 일어나지 않았다고 한다 끄-읏\n(이게 아니잖아!!!! 퍽)"
     // 배경화면
-    let backgroundIamge = "BackgroundLove"
+    let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지
-    let domoImage = "DomoOhyesReverse"
+    let domoImage = "DomoSide"
 
     var body: some View {
         ZStack {
@@ -33,17 +35,39 @@ struct Sulmoon8View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(width: screenWidth, height: screenHeight)
+                .overlay(
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .opacity(0.7)
+                )
             VStack {
                 Spacer()
-                Image(domoImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: screenHeight * 0.65)
-                    .padding(.bottom, 160)
-                    .padding(.leading, 200)
+                // 도모쿤을 위한 자리
+                HStack {
+                    Spacer()
+                    VStack() {
+                        Image(domoImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: screenHeight * 0.8)
+                            .padding(.trailing, 100)
+                        // 도모 회전
+                            .rotationEffect(.degrees(isRotating))
+                            .onAppear {
+                                // 도모 회전 소요 시간
+                                withAnimation(.linear(duration: 1)
+                                    .speed(1)) {
+                                        // 회전할 각도
+                                        isRotating = -60.0
+                                    }
+                            }
+                        Spacer()
+                            .frame(height: screenHeight * 0.12)
+                    }
+                }
             }
-            VStack {
+            VStack() {
                 Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
@@ -74,7 +98,8 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: PosterView()) {
+                            // 넥스트 버튼 -> 이전 화면
+                            PopView() {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -104,17 +129,22 @@ struct Sulmoon8View: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
+                    /* 구식 Next Button
+                    NextButton()
+                        .position(x: 1160, y: 190)
+                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
 
-struct Sulmoon8View_Previews: PreviewProvider {
+struct ContactNothingView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon8View()
+        ContactNothingView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
