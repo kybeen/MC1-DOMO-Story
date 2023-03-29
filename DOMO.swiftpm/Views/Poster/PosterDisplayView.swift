@@ -89,7 +89,7 @@ struct PosterDisplayView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Text("Test")){
+                            PushView(destination: GetNumberView()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }

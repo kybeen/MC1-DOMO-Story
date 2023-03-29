@@ -78,7 +78,7 @@ struct ContactImessageView: View {
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                             // 넥스트 버튼 -> Date1View
-                            PushView(destination: SelectionContactView()) {
+                            PushView(destination: Date1View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
