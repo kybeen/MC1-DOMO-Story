@@ -104,7 +104,7 @@ struct PosterDisplayView: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 1.0
+                                textduration = 2.5
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -129,7 +129,7 @@ struct PosterDisplayView: View {
 
 struct PosterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        PosterDisplayView(name: "러블리 도모쿤♫~♪~!", poster: Image("PosterMarry"), script: "밀당은 없다 너 하나쯤은 내가 보살펴주마")
+        PosterDisplayView(name: "러블리 도모쿤♫~♪~!", poster: Image("PosterMarry"), script: "나 도모쿤이랑 결혼하면 행복은 보장된 것. 셋 셀테니 대답해주시죠?\n하나. 둘.. 둘 반의 반.. 반의 반의 반.. 반의 반의 당근당근.")
             .previewInterfaceOrientation(.landscapeLeft)
 
     }
