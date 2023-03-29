@@ -36,11 +36,8 @@ struct ContactNothingView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
-                .overlay(
-                    Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(0.7)
-                )
+            Color.black
+                .opacity(0.7)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
