@@ -16,8 +16,8 @@ let package = Package(
         .iOSApplication(
             name: "DOMO",
             targets: ["AppModule"],
-            bundleIdentifier: "ID.DOMO",
-            teamIdentifier: "Q6S8GWB6BP",
+            bundleIdentifier: "lotsofgrace",
+            teamIdentifier: "HBU35F77NV",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .movieReel),
@@ -34,10 +34,19 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/matteopuc/swiftui-navigation-stack", "1.0.0"..<"2.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            dependencies: [
+                .product(name: "NavigationStack", package: "swiftui-navigation-stack")
+            ],
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

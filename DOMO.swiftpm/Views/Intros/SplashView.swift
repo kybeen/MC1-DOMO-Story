@@ -10,13 +10,12 @@ import NavigationStack
 
 struct SplashView: View {
     var body: some View {
-        NavigationStackView {
-            PushView(destination: ScriptSampleView()) {
-                Text("시작하기")
-                    .font(.largeTitle)
+
+        NavigationStackView(transitionType: .none) {
+            PushView(destination: InformationView()) {
+                TitleView()
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -24,5 +23,6 @@ struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         SplashView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(UserSettings())
     }
 }

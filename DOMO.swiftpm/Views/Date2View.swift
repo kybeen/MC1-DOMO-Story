@@ -105,9 +105,3 @@ struct Previews_Date2View_Previews: PreviewProvider {
     }
 }
 
-//extension String {
-   // subscript(offset: Int) -> Character {
-       // self[index(startIndex, offsetBy: offset)]
- //   }
-//}
-
