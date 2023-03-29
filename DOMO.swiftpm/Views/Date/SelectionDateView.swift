@@ -43,7 +43,7 @@ struct SelectionDateView: View {
                 
             }
         }
-        .navigationViewStyle(.stack)
+        .ignoresSafeArea()
     }
 }
 
