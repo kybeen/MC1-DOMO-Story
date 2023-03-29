@@ -8,21 +8,22 @@
 import SwiftUI
 import NavigationStack
 
-struct AfterDate1View: View {
+struct AfterDate2View: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
     
-    let backgroundIamge = "BackgroundC5ChB"
-    let domoImage = "DomoStand"
+    let backgroundIamge = "BackgroundFlower"
+    let domoImage = ""
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "오이오이... 그렇다면 넌 내일 와타시와 『벚꽃』을 보러 가는 것이다! \n내일을 위해 무려 시간을 비워뒀다고욧! (훗.. 이 정도 쯤이야) "
+    @State var script = "  "
     var body: some View {
         ZStack {
             // 배경 사진
@@ -76,7 +77,7 @@ struct AfterDate1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: AfterDate2View()){
+                            PushView(destination: Final1View()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -114,9 +115,9 @@ struct AfterDate1View: View {
     }
 }
 
-struct AfterDate1View_Previews: PreviewProvider {
+struct AfterDate2View_Previews: PreviewProvider {
     static var previews: some View {
-        AfterDate1View()
+        AfterDate2View()
             .previewInterfaceOrientation(.landscapeLeft)
 
     }
