@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct SplashView: View {
     var body: some View {
-        NavigationView {
-            NavigationLink {
-                ScriptSampleView()
-            } label: {
+        NavigationStackView {
+            PushView(destination: ScriptSampleView()) {
                 Text("시작하기")
                     .font(.largeTitle)
             }
