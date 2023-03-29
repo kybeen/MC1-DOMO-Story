@@ -1,50 +1,42 @@
-//
-//  SwiftUIView.swift
-//
-//
-//  Created by 박상원 on 2023/03/28.
-//
-
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Sulmoon8View: View {
+struct Date2View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-
+    
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
     // 이름
-    let name = "김칫국 도모쿤♫~♪~!"
+    let name = "의욕적인 도모쿤♫~♪~!"
     // 대사
-    @State var script = "아닛! 그녀가 나 도모쿤이 이상형이라고 돌려 말한 게 아닐까??!!\n오오옷!! 끼요오오옷~~~!!!!!"
+    let script = "오늘 그녀에게 데이트 신청을 해버린다!!!"
+    
     // 배경화면
-    let backgroundIamge = "BackgroundLove"
+    let backgroundIamge = "BackgroundCafe"
     // 도모쿤 이미지
-    let domoImage = "DomoOhyesReverse"
-
+    let domoImage = "DomoLove"
+    
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
             VStack {
                 Spacer()
-                Image(domoImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: screenHeight * 0.65)
-                    .padding(.bottom, 160)
-                    .padding(.leading, 200)
-            }
-            VStack {
-                Spacer()
+                // 도모쿤을 위한 자리
+                HStack {
+                    Spacer()
+                    Image(domoImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:660, height:625)
+                        .position(x:900, y:600)
+                }
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -74,12 +66,13 @@ struct Sulmoon8View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Date1View()) {
+                            PushView(destination: SelectionDateView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
+                        // Divider
                         Rectangle()
                             .fill(LinearGradient(
                                 gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
@@ -112,9 +105,10 @@ struct Sulmoon8View: View {
     }
 }
 
-struct Sulmoon8View_Previews: PreviewProvider {
+struct Previews_Date2View_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon8View()
+        Date2View()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
