@@ -26,6 +26,7 @@ struct Date2View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
+                .frame(height: screenHeight)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
