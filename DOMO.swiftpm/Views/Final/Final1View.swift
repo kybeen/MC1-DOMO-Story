@@ -20,7 +20,7 @@ struct Final1View: View {
     let backgroundIamge = "BackgroundFlower"
     let domoImage = "DomoStand"
     // 이름
-    let name = "설레는 도모쿤♫~♪~!"
+    let name = "심장박동이 빨라진 도모쿤♫~♪~!"
     // 대사
     @State var script = " 쿠쿠. 너가 내 처음이닷! "
     var body: some View {
@@ -74,7 +74,6 @@ struct Final1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
