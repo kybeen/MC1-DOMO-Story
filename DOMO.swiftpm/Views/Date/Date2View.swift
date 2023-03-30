@@ -13,8 +13,8 @@ struct Date2View: View {
     // 이름
     let name = "의욕적인 도모쿤♫~♪~!"
     // 대사
-    let script = "오늘 그녀에게 데이트 신청을 해버린다!!!"
-
+    let script = "오늘 그녀에게 데이트 신청을 해버린다!!! \n(우효효효효~!)"
+    
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지

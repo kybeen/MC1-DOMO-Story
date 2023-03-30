@@ -59,6 +59,8 @@ struct InformationView: View {
                     SeperatedTextField(length: 8, string: $user.nickname)
                         .padding(.leading, 16)
                         .focused($focusField, equals: .focused)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.characters) // 대문자 영어만 입력되도록
 
                     // 확인 버튼
                     Button {

@@ -21,7 +21,7 @@ struct Sulmoon1View: View {
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
-    @State var script = "맞잡았던 손이 잊혀지지 않는다랄까. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
+    @State var script = "맞잡았던 손이 잊혀지지 않는다랄까.. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지

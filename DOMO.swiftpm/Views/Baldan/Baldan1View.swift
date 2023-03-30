@@ -21,7 +21,7 @@ struct Baldan1View: View {
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
-    @State var script = "오늘부터 나 도모쿤이 아카데미를 접수해주겠어-!"
+    @State var script = "오늘부터 나 『도모쿤』이 아카데미를 접수해주겠어-!"
     var body: some View {
         ZStack {
             // 배경 사진
