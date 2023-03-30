@@ -45,6 +45,7 @@ struct Baldan3View: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 1.0 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }
@@ -80,6 +81,7 @@ struct Baldan3View: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
+//                                bgm.happyEffect.volume = 1.0
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)

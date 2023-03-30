@@ -32,6 +32,7 @@ struct Baldan1View: View {
                 .frame(height: screenHeight)
                 .onAppear{
                     bgm.firstBGM.play()
+                    bgm.happyEffect.volume = 0.5
                 }
             VStack {
                 Spacer()
@@ -57,6 +58,7 @@ struct Baldan1View: View {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             refreshToken = false
                         }
                     VStack(alignment: .leading, spacing: 0) {
@@ -72,6 +74,8 @@ struct Baldan1View: View {
                             BackButton()
                                 .simultaneousGesture(TapGesture().onEnded{
                                     bgm.buttonEffect.play()
+                                    bgm.firstBGM.stop()
+                                    bgm.titleBGM.resume()
                                 })
                             // 리플레이 버튼
                             Button {
@@ -91,7 +95,6 @@ struct Baldan1View: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded{
                                 bgm.buttonEffect.play()
-                                bgm.firstBGM.volume = 0.3
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)
@@ -106,6 +109,7 @@ struct Baldan1View: View {
                             .onAppear {
                                 textduration = 1.0
                                 lettersShowing += Double(script.count)
+//                                bgm.speakEffect.play()
                             }
                         // 대사
                         AppearingText(
