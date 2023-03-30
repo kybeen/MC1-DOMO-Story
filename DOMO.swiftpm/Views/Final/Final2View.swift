@@ -17,8 +17,7 @@ struct Final2View: View {
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     let backgroundIamge = "BackgroundFlower"
-    let name = ""
-    
+    let name = " "
     
     var body: some View {
         ZStack {
