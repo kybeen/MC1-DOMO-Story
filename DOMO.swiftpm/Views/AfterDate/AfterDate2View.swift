@@ -1,32 +1,29 @@
-//
+  //
 //  SwiftUIView.swift
+//  
 //
-//
-//  Created by 박상원 on 2023/03/28.
+//  Created by minseo on 2023/03/29.
 //
 
-import NavigationStack
 import SwiftUI
+import NavigationStack
 
-struct Baldan4View: View {
+struct AfterDate2View: View {
     @State var lettersShowing: Double = 0
-    @State var textduration: Double = 1.0
+    @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-
+    
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
+    
+    let backgroundIamge = "BackgroundFlower"
+    let domoImage = ""
     // 이름
-    let name = "금사빠 도모쿤♫~♪~!"
+    let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "나 도모쿤... 어쩌면 사랑에 빠졌을지도?"
-    // 배경화면
-    let backgroundIamge = "BackgroundLove"
-    // 도모쿤 이미지
-    let domoImage = "DomoMung"
-
+    @State var script = "  "
     var body: some View {
         ZStack {
             // 배경 사진
@@ -34,16 +31,23 @@ struct Baldan4View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+
             VStack {
                 Spacer()
-                Image(domoImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: screenHeight * 0.75)
-                    .padding(.bottom, 100)
+                HStack {
+                    Spacer()
+                    Image(domoImage)
+                        .rotationEffect(.degrees(30))
+                        //.resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.7)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
+                }
             }
+
             VStack {
                 Spacer()
+
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -64,7 +68,6 @@ struct Baldan4View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
-                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -74,7 +77,7 @@ struct Baldan4View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Sulmoon1View()) {
+                            PushView(destination: Final1View()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -89,7 +92,7 @@ struct Baldan4View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 3.0
+                                textduration = 1.0
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -112,9 +115,10 @@ struct Baldan4View: View {
     }
 }
 
-struct Baldan4View_Previews: PreviewProvider {
+struct AfterDate2View_Previews: PreviewProvider {
     static var previews: some View {
-        Baldan4View()
+        AfterDate2View()
             .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }

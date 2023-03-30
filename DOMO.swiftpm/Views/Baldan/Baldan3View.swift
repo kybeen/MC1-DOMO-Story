@@ -5,8 +5,8 @@
 //  Created by 박상원 on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct Baldan3View: View {
     @State var lettersShowing: Double = 0
@@ -32,7 +32,7 @@ struct Baldan3View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
-           
+
             VStack {
                 Spacer()
                 // 대화창
@@ -55,6 +55,7 @@ struct Baldan3View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -64,7 +65,7 @@ struct Baldan3View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Baldan4View()){
+                            PushView(destination: Baldan4View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -106,6 +107,5 @@ struct Baldan3View_Previews: PreviewProvider {
     static var previews: some View {
         Baldan3View()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }

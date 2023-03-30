@@ -65,6 +65,8 @@ struct Baldan1View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            // 뒤로가기 버튼
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
