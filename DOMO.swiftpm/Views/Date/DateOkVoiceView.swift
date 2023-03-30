@@ -1,11 +1,11 @@
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct DateOkVoiceView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 29 / 255, green: 84 / 255, blue: 74 / 255)
@@ -29,14 +29,14 @@ struct DateOkVoiceView: View {
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
-                HStack {
-                    Spacer()
-                    Image("")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:665, height:600)
-                        .position(x:300, y:600)
-                }
+//                HStack {
+//                    Spacer()
+//                    Image("")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width:665, height:600)
+//                        .position(x:300, y:600)
+//                }
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -113,4 +113,3 @@ struct Previews_DateOkVoiceView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-

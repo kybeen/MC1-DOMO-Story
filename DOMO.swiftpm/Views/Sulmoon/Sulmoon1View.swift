@@ -23,7 +23,7 @@ struct Sulmoon1View: View {
     // 대사
     @State var script = "맞잡았던 손이 잊혀지지 않는다랄까. \n후후. 나 도모쿤, 그녀가 궁금해져버렸다☆"
     // 배경화면
-    let backgroundIamge = "BackgroundCafe"
+    let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
     let domoImage = "DomoBack"
 
@@ -33,7 +33,7 @@ struct Sulmoon1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth)
             VStack {
                 Spacer()
                 HStack {
@@ -67,6 +67,7 @@ struct Sulmoon1View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

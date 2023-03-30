@@ -1,12 +1,12 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by OhSuhyun on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct GetNumberView: View {
     @State var lettersShowing: Double = 0
@@ -17,7 +17,7 @@ struct GetNumberView: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    
+
     // 이름
     let name = "신이 난 도모쿤♫~♪~!"
     // 대사
@@ -67,6 +67,7 @@ struct GetNumberView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
