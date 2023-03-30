@@ -7,6 +7,7 @@
 
 import NavigationStack
 import SwiftUI
+import SwiftySound
 
 struct SelectPosterView: View {
     @EnvironmentObject var bgm: BGM
@@ -40,6 +41,7 @@ struct SelectPosterView: View {
                         }
                         .simultaneousGesture(TapGesture().onEnded{
                             bgm.selectEffect.play()
+                            
                         })
                     }
                 }
