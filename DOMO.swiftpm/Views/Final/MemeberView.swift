@@ -12,11 +12,15 @@ struct MemberView: View {
     let name1 = ["ASH", "DION", "FLYNN"]
     let name2 = ["GRACE", "OCEAN", "REI"]
     @EnvironmentObject var bgm: BGM
+    @State var isTitleAnimating = false
+    
     var body: some View {
         ZStack {
             // 배경
             Color.black
-            
+                .onAppear{
+                    bgm.okEffect.volume = 0.5
+                }
             VStack {
                 Spacer()
                 // 제목
@@ -33,6 +37,15 @@ struct MemberView: View {
                         .foregroundColor(.red)
                 }
                 .padding(.bottom, 40)
+                .opacity(isTitleAnimating ? 0.1 : 1.0)
+                .onAppear{
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+                        isTitleAnimating.toggle()
+                    }
+                    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                        bgm.okEffect.play()
+                    }
+                }
                 
                 // 1행
                 HStack(spacing: 90) {

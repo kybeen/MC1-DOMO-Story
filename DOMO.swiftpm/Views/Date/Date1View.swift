@@ -29,6 +29,7 @@ struct Date1View: View {
                 .frame(width: screenWidth)
                 .onAppear{
                     bgm.happyEffect.volume = 0.5
+                    bgm.decisionEffect.play()
                 }
             VStack {
                 Spacer()

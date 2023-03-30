@@ -29,7 +29,6 @@ struct MyUnderlineText: View {
                 .foregroundColor(textColor)
                 .opacity(isButtonAnimating ? 0.01 : 1.0)
                 .onAppear {
-
                     if (isBtnAnimating == true) { // isBtnAnimating이 true일때만 깜빡이 효과
                         timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
 

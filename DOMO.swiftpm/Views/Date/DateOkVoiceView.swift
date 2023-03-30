@@ -30,6 +30,7 @@ struct DateOkVoiceView: View {
                     bgm.firstBGM.stop()
                     bgm.secondBGM.play()
                     bgm.happyEffect.volume = 0.5
+                    bgm.girlGOEffect.play()
                 }
             VStack {
                 Spacer()

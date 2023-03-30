@@ -37,6 +37,7 @@ struct Sulmoon3View: View {
                 .frame(width: screenWidth)
                 .onAppear {
                     bgm.happyEffect.volume = 0.5
+                    bgm.questionEffect.play()
                 }
             VStack {
                 Spacer()
