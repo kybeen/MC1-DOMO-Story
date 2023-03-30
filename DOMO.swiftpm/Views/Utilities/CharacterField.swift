@@ -34,15 +34,15 @@ struct CharacterField: View {
             
             // 여러 길이의 Text가 입력되어도 한 글자만 입력될 수 있도록 길이가 1보다 큰 String에 대해 앞글자만 저장
             if newValue.count > 1 {
-
                 character = String(newValue[newValue.index(before: newValue.endIndex)])
-//                character = String(newValue[newValue.startIndex..<newValue.index(newValue.startIndex, offsetBy: 1)])
-
+                //character = String(newValue[newValue.startIndex..<newValue.index(newValue.startIndex, offsetBy: 1)])
             }
             print("character: \(character), focused: \(focused!), index: \(index), user: \(user.nickname)") // 디버깅용
         }
         .foregroundColor(.white)
         .frame(width: 52)
+        .keyboardType(.emailAddress)
+        .textInputAutocapitalization(.characters) // 대문자 영어만 입력되도록
     }
 }
 
