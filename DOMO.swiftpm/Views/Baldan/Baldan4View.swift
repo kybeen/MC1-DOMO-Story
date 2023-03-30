@@ -19,7 +19,7 @@ struct Baldan4View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     // 이름
-    let name = "도모쿤♫~♪~!"
+    let name = "금사빠 도모쿤♫~♪~!"
     // 대사
     @State var script = "나 도모쿤... 어쩌면 사랑에 빠졌을지도?"
     // 배경화면
