@@ -22,7 +22,7 @@ struct AfterDate1View: View {
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "오이오이... 그렇다면 넌 내일 와타시와 『벚꽃』을 보러 가는 것이다! \n내일을 위해 무려 시간을 비워뒀다고욧! (훗.. 이 정도 쯤이야) "
+    @State var script = "오이오이... 넌 내일 와타시와 『벚꽃』을 보러 가는 것이다!\n내일을 위해 무려 시간을 비워뒀다고욧! (훗.. 이 정도 쯤이야) "
     var body: some View {
         ZStack {
             // 배경 사진
@@ -74,7 +74,7 @@ struct AfterDate1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                BackButton()
+                                //BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
