@@ -36,7 +36,7 @@ struct ContactDreamView: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(width: screenWidth, height: screenHeight)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
@@ -47,6 +47,10 @@ struct ContactDreamView: View {
                         .scaledToFit()
                         .frame(height: screenHeight * 0.5)
                 }
+                Spacer()
+            }
+            VStack {
+                Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -81,10 +85,9 @@ struct ContactDreamView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
-                            
                             // 넥스트 버튼 -> SelectionContactView
                             PushView(destination: SelectionContactView()) {
                                 ScriptButtonText(text: "NEXT")
@@ -119,15 +122,10 @@ struct ContactDreamView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    // 구식 Next Button
-                    // NextButton()
-                    //    .position(x: 1160, y: 190)
-                    //
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
