@@ -36,7 +36,7 @@ struct AfterDate1View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(30))
+                        .rotationEffect(.degrees(25))
                         // .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.7)
@@ -74,10 +74,11 @@ struct AfterDate1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                //BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            
+
                             PushView(destination: AfterDate2View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
