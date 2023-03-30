@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NavigationStack
 
 struct MemberView: View {
     let name1 = ["ASH", "DION", "FLYNN"]
@@ -20,7 +21,10 @@ struct MemberView: View {
                 Spacer()
                 // 제목
                 HStack {
-                    MyText(text: "DOYEONSI by First", fontSize: 50)
+                    PopView(destination: .root) {
+                        MyText(text:"DOYEONSI ", fontSize: 50)
+                    }
+                    MyText(text: "by First", fontSize: 50)
                     Text("Dot")
                         .font(.custom(.DungGeunMo, size: 50))
                         .foregroundColor(.red)
