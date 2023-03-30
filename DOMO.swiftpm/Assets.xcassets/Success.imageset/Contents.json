@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Success.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Success + End.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
