@@ -34,7 +34,7 @@ struct PosterDisplayView: View {
                 Spacer()
                 VStack {
                     Spacer()
-                    Image("DomoStand")
+                    Image(domoImage)
                         .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.5)

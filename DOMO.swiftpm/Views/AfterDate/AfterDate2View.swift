@@ -2,70 +2,52 @@
 //  SwiftUIView.swift
 //  
 //
-//  Created by OhSuhyun on 2023/03/28.
+//  Created by minseo on 2023/03/29.
 //
 
 import SwiftUI
 import NavigationStack
 
-struct ContactNothingView: View {
+struct AfterDate2View: View {
     @State var lettersShowing: Double = 0
-    @State var textduration: Double = 1.0
+    @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    // 도모 회전 각도 변수
-    @State private var isRotating = 0.0
-
+    
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
     
+    let backgroundIamge = "BackgroundFlower"
+    let domoImage = ""
     // 이름
-    let name = "우울한 도모쿤♫~♪~!"
+    let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "아무 일도 일어나지 않았다고 한다 끄-읏\n(이게 아니잖아!!!! 퍽)"
-    // 배경화면
-    let backgroundIamge = "BackgroundRoom"
-    // 도모쿤 이미지
-    let domoImage = "DomoSide"
-
+    @State var script = "  "
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth, height: screenHeight)
-            Color.black
-                .opacity(0.7)
+                .frame(height: screenHeight)
+
             VStack {
                 Spacer()
-                // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    VStack() {
-                        Image(domoImage)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: screenHeight * 0.8)
-                            .padding(.trailing, 100)
-                        // 도모 회전
-                            .rotationEffect(.degrees(isRotating))
-                            .onAppear {
-                                // 도모 회전 소요 시간
-                                withAnimation(.linear(duration: 1)
-                                    .speed(1)) {
-                                        // 회전할 각도
-                                        isRotating = -60.0
-                                    }
-                            }
-                        Spacer()
-                            .frame(height: screenHeight * 0.12)
-                    }
+                    Image(domoImage)
+                        .rotationEffect(.degrees(30))
+                        //.resizable()
+                        .scaledToFit()
+                        .frame(height: screenHeight * 0.7)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
                 }
             }
-            VStack() {
+
+            VStack {
                 Spacer()
+
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -95,8 +77,7 @@ struct ContactNothingView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            // 넥스트 버튼 -> 이전 화면
-                            PopView() {
+                            PushView(destination: Final1View()){
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -111,7 +92,7 @@ struct ContactNothingView: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 3.0
+                                textduration = 1.0
                                 lettersShowing += Double(script.count)
                             }
                         // 대사
@@ -126,22 +107,18 @@ struct ContactNothingView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    /* 구식 Next Button
-                    NextButton()
-                        .position(x: 1160, y: 190)
-                     */
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
 
-struct ContactNothingView_Previews: PreviewProvider {
+struct AfterDate2View_Previews: PreviewProvider {
     static var previews: some View {
-        ContactNothingView()
+        AfterDate2View()
             .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }
