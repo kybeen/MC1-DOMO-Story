@@ -128,6 +128,9 @@ struct Sulmoon8View: View {
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            bgm.yahoEffect.play()
+        }
     }
 }
 
