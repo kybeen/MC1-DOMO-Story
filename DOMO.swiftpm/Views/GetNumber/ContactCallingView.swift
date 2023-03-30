@@ -14,6 +14,7 @@ struct ContactCallingView: View {
     @State var refreshToken: Bool = false
     // 도모 회전 각도 변수
     @State private var isRotating = 0.0
+    @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -74,6 +75,7 @@ struct ContactCallingView: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -88,6 +90,9 @@ struct ContactCallingView: View {
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded{
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -97,11 +102,18 @@ struct ContactCallingView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
+                            
                             // 넥스트 버튼 -> 이전 화면
                             PopView {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -145,5 +157,7 @@ struct ContactCallingView_Previews: PreviewProvider {
     static var previews: some View {
         ContactCallingView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
+
     }
 }

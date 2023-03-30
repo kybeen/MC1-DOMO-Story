@@ -18,7 +18,7 @@ struct SeperatedTextField: View {
     var body: some View {
         HStack {
 
-            ForEach(0 ..< length) { i in // length 만큼 CharacterField()를 생성해줌
+            ForEach(0 ..< length, id: \.self) { i in // length 만큼 CharacterField()를 생성해줌
                 CharacterField(
                     focused: _focused,
                     index: i,

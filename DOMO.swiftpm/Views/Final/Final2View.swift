@@ -12,7 +12,8 @@ struct Final2View: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+    @EnvironmentObject var bgm: BGM
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
@@ -40,6 +41,13 @@ struct Final2View: View {
                     Rectangle()
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
+                        .onTapGesture {
+                            bgm.buttonEffect.play()
+                            textduration = refreshToken ? 3.0 : 1.0
+                            lettersShowing += Double(script.count)
+                            refreshToken = false
+                        }
+
                     VStack(alignment: .leading, spacing: 0) {
                         // 대화창 상단
                         HStack {
@@ -49,7 +57,11 @@ struct Final2View: View {
 //                                .foregroundColor(.white)
 //                                .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            // 뒤로가기 버튼
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded{
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -59,10 +71,17 @@ struct Final2View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
                             PushView(destination: EndingView()) {
+
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
 
@@ -106,6 +125,8 @@ struct Final2View_Previews: PreviewProvider {
     static var previews: some View {
         Final2View()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
+
     }
 }
 

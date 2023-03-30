@@ -12,6 +12,7 @@ struct Baldan4View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -51,6 +52,7 @@ struct Baldan4View: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -64,7 +66,11 @@ struct Baldan4View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            // 뒤로가기 버튼
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded{
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -74,10 +80,16 @@ struct Baldan4View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
                             PushView(destination: Sulmoon1View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded{
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -116,5 +128,6 @@ struct Baldan4View_Previews: PreviewProvider {
     static var previews: some View {
         Baldan4View()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }
