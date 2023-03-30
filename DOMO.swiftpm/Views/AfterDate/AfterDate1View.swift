@@ -29,7 +29,7 @@ struct AfterDate1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth)
 
             VStack {
                 Spacer()

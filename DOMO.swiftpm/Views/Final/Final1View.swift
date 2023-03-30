@@ -29,7 +29,7 @@ struct Final1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth)
+                .frame(height: screenHeight)
 
             VStack {
                 Spacer()
