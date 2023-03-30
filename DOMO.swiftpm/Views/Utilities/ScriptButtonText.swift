@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScriptButtonText: View {
+    @EnvironmentObject var bgm: BGM
     var text: String = ""
     var body: some View {
         Text(text)
@@ -15,11 +16,13 @@ struct ScriptButtonText: View {
             .foregroundColor(.white)
             .underline()
             .opacity(0.8)
+//            .simultaneousGesture  (TapGesture().onEnded { bgm.buttonEffect.play() })
     }
 }
 
 struct ScriptButtonText_Previews: PreviewProvider {
     static var previews: some View {
         ScriptButtonText()
+            .environmentObject(BGM())
     }
 }
