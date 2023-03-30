@@ -53,7 +53,7 @@ struct SelectionContactView: View {
                     }
                     // 선택지 3 -> ContactSnsView
                     PushView(destination: ContactSnsView()) {
-                        Text("그녀의 카톡 프로필 나에게 보여져버렷!.")
+                        Text("카톡 프로필로 그녀가 어디 사는 지 알아내보자-!")
                             .font(.custom(.gulim, size: 40))
                             .shadow(color: .black.opacity(0.25), radius: 1, x: 2, y: 2)
                             .foregroundColor(.black)
