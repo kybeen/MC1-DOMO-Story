@@ -9,6 +9,7 @@ import NavigationStack
 import SwiftUI
 
 struct SelectPosterView: View {
+    @EnvironmentObject var bgm: BGM
     var body: some View {
         ZStack {
             Color.black
@@ -37,6 +38,9 @@ struct SelectPosterView: View {
                                 )
                                 .cornerRadius(34)
                         }
+                        .simultaneousGesture(TapGesture().onEnded{
+                            bgm.selectEffect.play()
+                        })
                     }
                 }
             }
@@ -49,5 +53,6 @@ struct SelectPosterView_Previews: PreviewProvider {
     static var previews: some View {
         SelectPosterView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

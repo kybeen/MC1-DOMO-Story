@@ -1,12 +1,12 @@
 //
 //  Final2View.swift
-//  
+//
 //
 //  Created by Chaeeun Shin on 2023/03/30.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct Final2View: View {
     @State var lettersShowing: Double = 0
@@ -18,7 +18,7 @@ struct Final2View: View {
     let screenWidth = UIScreen.main.bounds.size.width
     let backgroundIamge = "BackgroundFlower"
     let name = " "
-    
+
     var body: some View {
         ZStack {
             // 배경 사진
@@ -47,7 +47,7 @@ struct Final2View: View {
                             Spacer()
                             // 뒤로가기 버튼
                             BackButton()
-                                .simultaneousGesture(TapGesture().onEnded{
+                                .simultaneousGesture(TapGesture().onEnded {
                                     bgm.buttonEffect.play()
                                 })
                             // 리플레이 버튼
@@ -59,15 +59,14 @@ struct Final2View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
                             PushView(destination: EndingView()) {
-
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
                         }
@@ -113,7 +112,5 @@ struct Final2View_Previews: PreviewProvider {
         Final2View()
             .previewInterfaceOrientation(.landscapeLeft)
             .environmentObject(BGM())
-
     }
 }
-

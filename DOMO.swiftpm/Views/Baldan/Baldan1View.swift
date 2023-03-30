@@ -47,7 +47,6 @@ struct Baldan1View: View {
 
             VStack {
                 Spacer()
-
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -92,6 +91,7 @@ struct Baldan1View: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded{
                                 bgm.buttonEffect.play()
+                                bgm.firstBGM.volume = 0.3
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)

@@ -116,7 +116,7 @@ struct Sulmoon2View: View {
                         .foregroundColor(.white)
                         .fixedSize()
                         .padding(.leading, screenWidth * 0.05)
-                        .padding(.trailing, screenWidth * 0.04)
+                        .padding(.trailing, screenWidth * 0.03)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
                 }
