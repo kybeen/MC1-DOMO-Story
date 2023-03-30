@@ -9,6 +9,7 @@ import NavigationStack
 import SwiftUI
 
 struct SelectionDateView: View {
+    @EnvironmentObject var bgm: BGM
     var body: some View {
         ZStack {
             Color.black
@@ -37,6 +38,9 @@ struct SelectionDateView: View {
                                 )
                                 .cornerRadius(34)
                         }
+                        .simultaneousGesture(TapGesture().onEnded{
+                            bgm.selectEffect.play()
+                        })
                     }
                 }
             }
@@ -49,5 +53,6 @@ struct SelectionDateView_Previews: PreviewProvider {
     static var previews: some View {
         SelectionDateView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

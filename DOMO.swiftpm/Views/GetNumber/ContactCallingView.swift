@@ -37,6 +37,10 @@ struct ContactCallingView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
+                .onAppear{
+                    bgm.firstBGM.pause()
+                    bgm.failedBGM.play()
+                }
             Color.black
                 .opacity(0.7)
             VStack {
@@ -106,12 +110,12 @@ struct ContactCallingView: View {
                                 bgm.buttonEffect.play()
                             })
                             
-                            // 넥스트 버튼 -> 이전 화면
-                            PopView {
+                            // 넥스트 버튼 -> ContactDreamView
+                            PushView(destination: ContactDreamView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
                         }

@@ -22,7 +22,7 @@ struct Sulmoon2View: View {
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
-    @State var script = "(카페테리아에 앉아 다른 러너들과 담소를 나누는 그녀에게 다가간다)"
+    @State var script = "(카페테리아에 앉아 담소를 나누는 그녀에게 다가간다)"
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
@@ -116,7 +116,7 @@ struct Sulmoon2View: View {
                         .foregroundColor(.white)
                         .fixedSize()
                         .padding(.leading, screenWidth * 0.05)
-                        .padding(.trailing, screenWidth * 0.04)
+                        .padding(.trailing, screenWidth * 0.03)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
                 }

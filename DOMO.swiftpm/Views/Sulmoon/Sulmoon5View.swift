@@ -22,7 +22,7 @@ struct Sulmoon5View: View {
     // 이름
     let name = "물음표 살인마 도모쿤♫~♪~!"
     // 대사
-    @State var script = "새로운 사람을 알아갈 때 무엇이 중요한지 말해주면 고맙겠습니다만?"
+    @State var script = "새로운 사람을 알아갈 때 뭐가 중요한지 말해주면 고맙겠습니다만?"
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
@@ -114,7 +114,8 @@ struct Sulmoon5View: View {
                         .lineSpacing(10.0)
                         .foregroundColor(.white)
                         .fixedSize()
-                        .padding(.horizontal, screenWidth * 0.05)
+                        .padding(.leading, screenWidth * 0.05)
+                        .padding(.trailing, screenWidth*0.03)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
                 }

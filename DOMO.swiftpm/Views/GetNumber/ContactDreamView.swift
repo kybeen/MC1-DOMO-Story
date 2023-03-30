@@ -47,6 +47,10 @@ struct ContactDreamView: View {
                         .scaledToFit()
                         .frame(height: screenHeight * 0.5)
                 }
+                Spacer()
+            }
+            VStack {
+                Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -84,26 +88,14 @@ struct ContactDreamView: View {
                             .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
-                            // 백 버튼 -> GetNumberView
-                            PopView(destination: .view(withId: "GetNumberViewID")) {
-                                ScriptButtonText(text: "BACK")
+                            // 넥스트 버튼 -> SelectionContactView
+                            PushView(destination: SelectionContactView()) {
+                                ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                             .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
-                            // 간단한 pop -> 이전 화면으로
-                            // PopView {
-                            //    ScriptButtonText(text: "BACK")
-                            //        .padding(.trailing, screenWidth * 0.02)
-                            // }
-                            //
-                            // 넥스트 버튼 -> SelectionContactView
-                            // PushView(destination: SelectionContactView()) {
-                            //    ScriptButtonText(text: "NEXT")
-                            //        .padding(.trailing, screenWidth * 0.02)
-                            // }
-                            //
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -130,15 +122,10 @@ struct ContactDreamView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    // 구식 Next Button
-                    // NextButton()
-                    //    .position(x: 1160, y: 190)
-                    //
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }
         }
-        .navigationBarBackButtonHidden(true)
         .ignoresSafeArea()
     }
 }
