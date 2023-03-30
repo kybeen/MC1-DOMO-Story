@@ -21,7 +21,7 @@ struct Baldan4View: View {
     // 이름
     let name = "금사빠 도모쿤♫~♪~!"
     // 대사
-    @State var script = "나 도모쿤... 어쩌면 사랑에 빠졌을지도?"
+    @State var script = "나 도모쿤... 어쩌면 사랑에 빠졌을지도? \n(음하하하하)"
     // 배경화면
     let backgroundIamge = "BackgroundLove"
     // 도모쿤 이미지
