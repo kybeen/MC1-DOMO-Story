@@ -20,7 +20,7 @@ struct Final1View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     let backgroundIamge = "BackgroundFlower"
-    let domoImage = "DomoStand"
+    let domoImage = "DomoHorray"
     // 이름
     let name = "심장박동이 빨라진 도모쿤♫~♪~!"
     // 대사
@@ -38,8 +38,7 @@ struct Final1View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(30))
-                        // .resizable()
+                        .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.7)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))

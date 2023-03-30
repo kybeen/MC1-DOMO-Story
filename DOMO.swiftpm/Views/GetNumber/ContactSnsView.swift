@@ -24,7 +24,7 @@ struct ContactSnsView: View {
     // 이름
     let name = "음침한 도모쿤♫~♪~!"
     // 대사
-    @State var script = "내가 음.침.하다고?"
+    @State var script = "에에- 내가 음.침.하다고....?"
     // 배경화면
     let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지

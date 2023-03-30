@@ -22,7 +22,7 @@ struct GetNumberView: View {
     // 이름
     let name = "신이 난 도모쿤♫~♪~!"
     // 대사
-    @State var script = "끼얏호우~!! 나의 어필이 성공해버렸다죠!\n드디어 그녀의 번호가 내 손에 들어왔습니다만..?"
+    @State var script = "끼얏호우~!! 나의 어필이 성공해버렸다죠!\n드디어 그녀의 번호가 내 손에 들어왔습니다제~"
     // 배경화면
     let backgroundIamge = "BackgroundRoom"
     // 도모쿤 이미지

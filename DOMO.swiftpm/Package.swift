@@ -34,13 +34,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/matteopuc/swiftui-navigation-stack", "1.0.0"..<"2.0.0")
+        .package(url: "https://github.com/matteopuc/swiftui-navigation-stack", "1.0.0"..<"2.0.0"),
+        .package(url: "https://github.com/adamcichy/SwiftySound.git", "1.0.0"..<"2.0.0")
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
             dependencies: [
-                .product(name: "NavigationStack", package: "swiftui-navigation-stack")
+                .product(name: "NavigationStack", package: "swiftui-navigation-stack"),
+                .product(name: "SwiftySound", package: "swiftysound")
             ],
             path: ".",
             resources: [
