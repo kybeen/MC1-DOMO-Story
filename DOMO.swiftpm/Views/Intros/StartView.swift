@@ -37,6 +37,7 @@ struct StartView: View {
                         isBtnAnimating: true
                     )
                     .onDisappear{
+                        bgm.decideEffect.play()
                         bgm.titleBGM.pause()
                     }
                 }
