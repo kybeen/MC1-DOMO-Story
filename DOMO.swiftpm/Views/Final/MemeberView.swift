@@ -11,7 +11,7 @@ import NavigationStack
 struct MemberView: View {
     let name1 = ["ASH", "DION", "FLYNN"]
     let name2 = ["GRACE", "OCEAN", "REI"]
-    
+    @EnvironmentObject var bgm: BGM
     var body: some View {
         ZStack {
             // 배경
@@ -24,6 +24,9 @@ struct MemberView: View {
                     PopView(destination: .root) {
                         MyText(text:"DOYEONSI ", fontSize: 50)
                     }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        bgm.secondBGM.stop()
+                    })
                     MyText(text: "by First", fontSize: 50)
                     Text("Dot")
                         .font(.custom(.DungGeunMo, size: 50))
@@ -70,5 +73,6 @@ struct MemberView_Previews: PreviewProvider {
     static var previews: some View {
         MemberView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }
