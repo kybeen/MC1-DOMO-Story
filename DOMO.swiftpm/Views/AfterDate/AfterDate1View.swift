@@ -18,7 +18,7 @@ struct AfterDate1View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     let backgroundIamge = "BackgroundC5ChB"
-    let domoImage = "DomoStand"
+    let domoImage = "DomoFly"
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
@@ -36,11 +36,11 @@ struct AfterDate1View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(25))
-                        // .resizable()
+                        .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.7)
+                        .frame(width:665, height:800)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
+                        .position(x:950,y:500)
                 }
             }
 
