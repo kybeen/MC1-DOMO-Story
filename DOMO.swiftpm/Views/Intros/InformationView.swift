@@ -38,7 +38,7 @@ struct InformationView: View {
                     .padding(.bottom, 50)
 
                 // 입력폼
-                HStack {
+                HStack(alignment: .bottom) {
                     if let focus: Field = focusField { // 입력 필드에 focus가 가있을 때만 화살표 보임
                         if focus != .notFocused {
                             MyText(text: ">>>", fontSize: 40, textColor: .gray)
@@ -80,6 +80,7 @@ struct InformationView: View {
                             .font(.custom(.DungGeunMo, size: 30))
                             .underline()
                             .padding(.leading, 40)
+                            .padding(.bottom, 10)
                             .foregroundColor(.gray)
                     }
                 }
