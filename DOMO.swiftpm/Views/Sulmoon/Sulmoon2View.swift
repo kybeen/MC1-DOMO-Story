@@ -68,6 +68,8 @@ struct Sulmoon2View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
+
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

@@ -1,23 +1,23 @@
-  //
+//
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by minseo on 2023/03/29.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct AfterDate2View: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    
+
     let backgroundIamge = "BackgroundFlower"
     let domoImage = ""
     // 이름
@@ -38,7 +38,7 @@ struct AfterDate2View: View {
                     Spacer()
                     Image(domoImage)
                         .rotationEffect(.degrees(30))
-                        //.resizable()
+                        // .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.7)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
@@ -68,6 +68,7 @@ struct AfterDate2View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -77,7 +78,7 @@ struct AfterDate2View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Final1View()){
+                            PushView(destination: Final1View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -119,6 +120,5 @@ struct AfterDate2View_Previews: PreviewProvider {
     static var previews: some View {
         AfterDate2View()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }

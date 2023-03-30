@@ -1,11 +1,11 @@
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct Date2View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
@@ -14,19 +14,19 @@ struct Date2View: View {
     let name = "의욕적인 도모쿤♫~♪~!"
     // 대사
     let script = "오늘 그녀에게 데이트 신청을 해버린다!!!"
-    
+
     // 배경화면
-    let backgroundIamge = "BackgroundCafe"
+    let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
     let domoImage = "DomoLove"
-    
+
     var body: some View {
         ZStack {
             // 배경 사진
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
@@ -35,8 +35,8 @@ struct Date2View: View {
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width:660, height:625)
-                        .position(x:900, y:600)
+                        .frame(width: 660, height: 625)
+                        .position(x: 900, y: 600)
                 }
                 // 대화창
                 ZStack(alignment: .top) {
@@ -58,6 +58,7 @@ struct Date2View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -112,4 +113,3 @@ struct Previews_Date2View_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-

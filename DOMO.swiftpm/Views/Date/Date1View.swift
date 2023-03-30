@@ -1,11 +1,11 @@
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct Date1View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
@@ -15,8 +15,8 @@ struct Date1View: View {
     let name = "착각에 빠진 도모쿤♫~♪~!"
     // 대사
     let script = "우리 어쩌면 서로 35(사모)하고 있을 수도? \n이제 더 이상 머뭇거릴 수 없어!"
-    
-    let backgroundIamge = "BackgroundCafe"
+
+    let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
     let domoImage = "DomoShout"
     var body: some View {
@@ -25,7 +25,7 @@ struct Date1View: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(height: screenHeight)
+                .frame(width: screenWidth)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
@@ -34,9 +34,9 @@ struct Date1View: View {
                     Image(domoImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width:665, height:600)
-                        .position(x:300, y:600)
-                        .rotation3DEffect(.degrees(180),axis:(x:0, y:1, z:0))
+                        .frame(width: 665, height: 600)
+                        .position(x: 300, y: 600)
+                        .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 }
                 // 대화창
                 ZStack(alignment: .top) {
@@ -58,6 +58,7 @@ struct Date1View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

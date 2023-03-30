@@ -5,7 +5,7 @@
 //  Created by 김영빈 on 2023/03/27.
 //
 
-/* 유저 닉네임 입력 화면 */
+// 유저 닉네임 입력 화면
 import NavigationStack
 import SwiftUI
 
@@ -14,11 +14,12 @@ struct InformationView: View {
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating: Bool = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating: Bool = false // 버튼 깜빡거리는 효과를 위한 state변수
-    
+
     enum Field {
         case focused
         case notFocused
     }
+
     @FocusState var focusField: Field?
 
     var body: some View {
@@ -49,14 +50,13 @@ struct InformationView: View {
                         }
                     }
 
-                    
                     SeperatedTextField(length: 8, string: $user.nickname)
                         .padding(.leading, 16)
                         .focused($focusField, equals: .focused)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.characters) // 대문자 영어만 입력되도록
-                    
-                    /* 확인 버튼 */
+
+                    // 확인 버튼
                     Button {
                         if user.nickname != "" { // 닉네임 입력이 돼있는 경우
                             nicknameDone = true
@@ -78,10 +78,10 @@ struct InformationView: View {
                     }
                 }
                 .padding(.leading, 100)
-                
+
                 if nicknameDone == true {
                     VStack(alignment: .leading) {
-                        /* 진행 버튼 */
+                        // 진행 버튼
                         PushView(destination: StartView()) {
                             MyUnderlineText(
                                 text: "네, 제가 \(user.nickname) 맞습니다. (진행하기)",
@@ -91,8 +91,8 @@ struct InformationView: View {
                                 isBtnAnimating: true
                             )
                         }
-                        
-                        /* 취소 버튼 */
+
+                        // 취소 버튼
                         Button {
                             nicknameDone = false
                             isButtonAnimating = false
