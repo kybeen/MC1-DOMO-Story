@@ -110,15 +110,13 @@ struct ContactCallingView: View {
                                 bgm.buttonEffect.play()
                             })
                             
-                            // 넥스트 버튼 -> 이전 화면
-                            PopView {
+                            // 넥스트 버튼 -> ContactDreamView
+                            PushView(destination: ContactDreamView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
-                                bgm.failedBGM.stop()
-                                bgm.firstBGM.resume()
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)
