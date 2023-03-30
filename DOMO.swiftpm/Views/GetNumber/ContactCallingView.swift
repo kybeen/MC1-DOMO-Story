@@ -37,6 +37,10 @@ struct ContactCallingView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
+                .onAppear{
+                    bgm.firstBGM.pause()
+                    bgm.failedBGM.play()
+                }
             Color.black
                 .opacity(0.7)
             VStack {
@@ -113,6 +117,8 @@ struct ContactCallingView: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded{
                                 bgm.buttonEffect.play()
+                                bgm.failedBGM.stop()
+                                bgm.firstBGM.resume()
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)
