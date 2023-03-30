@@ -56,7 +56,8 @@ struct Baldan2View: View {
                         .opacity(0.72)
                         .onTapGesture {
                             bgm.buttonEffect.play()
-                            textduration = refreshToken ? 3.0 : 1.0
+                            textduration = 1.0
+                            bgm.happyEffect.volume = refreshToken ? 1.0 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }
@@ -73,6 +74,7 @@ struct Baldan2View: View {
                             BackButton()
                                 .simultaneousGesture(TapGesture().onEnded{
                                     bgm.buttonEffect.play()
+                                    bgm.firstBGM.stop()
                                 })
                             // 리플레이 버튼
                             Button {
@@ -92,6 +94,7 @@ struct Baldan2View: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded{
                                 bgm.buttonEffect.play()
+                                bgm.happyEffect.volume = 1.0
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)

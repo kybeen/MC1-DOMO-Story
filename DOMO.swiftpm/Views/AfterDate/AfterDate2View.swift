@@ -26,7 +26,7 @@ struct AfterDate2View: View {
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = " (터벅터벅 나에 일상) "
+    @State var script = "(터벅터벅 나에 일상) "
     var body: some View {
         ZStack {
             // 배경 사진
