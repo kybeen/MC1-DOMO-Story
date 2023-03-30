@@ -9,6 +9,7 @@ import NavigationStack
 import SwiftUI
 
 struct Baldan1View: View {
+    @EnvironmentObject var bgm: BGM
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
@@ -118,5 +119,6 @@ struct Baldan1View_Previews: PreviewProvider {
     static var previews: some View {
         Baldan1View()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }
