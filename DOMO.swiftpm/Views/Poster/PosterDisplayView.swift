@@ -31,7 +31,6 @@ struct PosterDisplayView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
-
             HStack {
                 Spacer()
                 VStack {
