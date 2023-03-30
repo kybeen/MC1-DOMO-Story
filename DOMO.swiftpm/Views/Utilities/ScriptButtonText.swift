@@ -16,7 +16,6 @@ struct ScriptButtonText: View {
             .foregroundColor(.white)
             .underline()
             .opacity(0.8)
-//            .simultaneousGesture  (TapGesture().onEnded { bgm.buttonEffect.play() })
     }
 }
 

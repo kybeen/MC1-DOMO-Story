@@ -26,7 +26,7 @@ struct TitleView: View {
                             isAnimating.toggle()
                         }
                         bgm.titleBGM.play()
-                        bgm.firstBGM.volume = 0.3
+                        bgm.firstBGM.volume = 0.4
                     }
                     .padding(.top, 100)
                     .padding(.bottom, 42)

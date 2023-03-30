@@ -16,12 +16,22 @@ class BGM: ObservableObject {
     @Published var secondBGM: Sound = .init(url: Bundle.main.url(forResource: "second_background_music", withExtension: "mp3")!)!
     @Published var happyEffect: Sound = .init(url: Bundle.main.url(forResource: "domo_happy_music", withExtension: "mp3")!)!
     @Published var speakEffect: Sound = .init(url: Bundle.main.url(forResource: "domo_speak_music", withExtension: "mp3")!)!
+    @Published var girlLaughEffect: Sound = .init(url: Bundle.main.url(forResource: "girl_laugh", withExtension: "mp3")!)!
+    @Published var loveEffect: Sound = .init(url: Bundle.main.url(forResource: "love_effect", withExtension: "mp3")!)!
+    @Published var posterEffect: Sound = .init(url: Bundle.main.url(forResource: "show_poster_music", withExtension: "mp3")!)!
+    @Published var successEffect: Sound = .init(url: Bundle.main.url(forResource: "success_effect", withExtension: "mp3")!)!
+    @Published var fellLoveEffect: Sound = .init(url: Bundle.main.url(forResource: "fell_love_effect", withExtension: "mp3")!)!
+    @Published var questionEffect: Sound = .init(url: Bundle.main.url(forResource: "question_effect", withExtension: "mp3")!)!
+    @Published var decisionEffect: Sound = .init(url: Bundle.main.url(forResource: "decision_effect", withExtension: "mp3")!)!
+    @Published var sayLoveEffect: Sound = .init(url: Bundle.main.url(forResource: "saylove_effect", withExtension: "mp3")!)!
+    @Published var girlOKEffect: Sound = .init(url: Bundle.main.url(forResource: "girl_date_effect", withExtension: "mp3")!)!
+    @Published var walkEffect: Sound = .init(url: Bundle.main.url(forResource: "walk_effect", withExtension: "mp3")!)!
+    @Published var girlPosterEffect: Sound = .init(url: Bundle.main.url(forResource: "girl_poster_effect", withExtension: "mp3")!)!
+    @Published var girlGOEffect: Sound = .init(url: Bundle.main.url(forResource: "girl_GO_effect", withExtension: "mp3")!)!
 
     @Published var failedBGM: Sound = .init(url: Bundle.main.url(forResource: "domo_failed_trimmed", withExtension: "m4a")!)! // 실패 BGM
-    @Published var eagleBGM: Sound = .init(url: Bundle.main.url(forResource: "eagle_music", withExtension: "m4a")!)! // 힙한 BGM
-    
+
     @Published var buttonEffect: Sound = .init(url: Bundle.main.url(forResource: "button_effect_music", withExtension: "mp3")!)!
-    @Published var handEffect: Sound = .init(url: Bundle.main.url(forResource: "hand_effect_music", withExtension: "mp3")!)!
     @Published var cancelEffect: Sound = .init(url: Bundle.main.url(forResource: "intro_cancel_effect", withExtension: "mp3")!)! // 취소 버튼 효과음
     @Published var keyboardEffect: Sound = .init(url: Bundle.main.url(forResource: "keyboard_effect", withExtension: "mp3")!)! // 키보드 효과음
     @Published var okEffect: Sound = .init(url: Bundle.main.url(forResource: "ok_effect", withExtension: "mp3")!)! // 확인 버튼 효과음

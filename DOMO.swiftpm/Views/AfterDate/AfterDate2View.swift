@@ -34,6 +34,10 @@ struct AfterDate2View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+                .onAppear{
+                    bgm.happyEffect.volume = 0.5
+                    bgm.walkEffect.play()
+                }
 
             VStack {
                 Spacer()
@@ -63,6 +67,7 @@ struct AfterDate2View: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }

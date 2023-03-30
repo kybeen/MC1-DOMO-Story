@@ -37,6 +37,7 @@ struct Sulmoon7View: View {
                 .frame(width: screenWidth)
                 .onAppear {
                     bgm.happyEffect.volume = 0.5
+                   
                 }
             VStack {
                 Spacer()

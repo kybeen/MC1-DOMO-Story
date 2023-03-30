@@ -33,7 +33,10 @@ struct Baldan3View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
-                .onAppear { bgm.handEffect.play() }
+                .onAppear {
+                    bgm.loveEffect.play()
+                    bgm.happyEffect.volume = 0.5
+                }
             VStack {
                 Spacer()
                 // 대화창
