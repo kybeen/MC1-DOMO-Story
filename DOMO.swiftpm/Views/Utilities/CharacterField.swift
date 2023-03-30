@@ -43,6 +43,8 @@ struct CharacterField: View {
         }
         .foregroundColor(.white)
         .frame(width: 52)
+        .keyboardType(.emailAddress)
+        .textInputAutocapitalization(.characters) // 대문자 영어만 입력되도록
     }
 }
 
