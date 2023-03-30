@@ -17,7 +17,7 @@ struct Final2View: View {
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     let backgroundIamge = "BackgroundFlower"
-    let name = ""
+    let name = " "
     
     var body: some View {
         ZStack {
@@ -35,12 +35,6 @@ struct Final2View: View {
                     Rectangle()
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
-                        .onTapGesture {
-                            bgm.buttonEffect.play()
-                            textduration = refreshToken ? 3.0 : 1.0
-                            lettersShowing += Double(script.count)
-                            refreshToken = false
-                        }
 
                     VStack(alignment: .leading, spacing: 0) {
                         // 대화창 상단
