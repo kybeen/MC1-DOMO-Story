@@ -73,6 +73,7 @@ struct Final1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
+                                BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
