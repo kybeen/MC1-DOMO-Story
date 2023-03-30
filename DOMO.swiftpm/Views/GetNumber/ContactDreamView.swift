@@ -38,6 +38,7 @@ struct ContactDreamView: View {
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
                 .onAppear{
+                    bgm.happyEffect.volume = 0.5
                     bgm.firstBGM.resume()
                     bgm.failedBGM.stop()
                 }
@@ -64,6 +65,7 @@ struct ContactDreamView: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }

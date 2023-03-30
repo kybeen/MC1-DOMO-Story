@@ -36,7 +36,7 @@ struct Baldan4View: View {
                 .scaledToFill()
                 .frame(width: screenWidth)
                 .onAppear{
-                    bgm.happyEffect.volume = 1.0
+                    bgm.happyEffect.volume = 0.5
                 }
             VStack {
                 Spacer()
@@ -57,7 +57,7 @@ struct Baldan4View: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
-                            bgm.happyEffect.volume = refreshToken ? 1.0 : 0.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }

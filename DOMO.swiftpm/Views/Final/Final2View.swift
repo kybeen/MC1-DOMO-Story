@@ -26,6 +26,9 @@ struct Final2View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+                .onAppear{
+                    bgm.happyEffect.volume = 0.5
+                }
 
             VStack {
                 Spacer()

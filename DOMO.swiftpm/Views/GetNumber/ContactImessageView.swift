@@ -35,6 +35,9 @@ struct ContactImessageView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
+                .onAppear{
+                    bgm.happyEffect.volume = 0.5
+                }
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
@@ -58,6 +61,7 @@ struct ContactImessageView: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }
