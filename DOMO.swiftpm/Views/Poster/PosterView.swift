@@ -12,6 +12,8 @@ struct PosterView: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @EnvironmentObject var bgm: BGM
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
@@ -53,6 +55,7 @@ struct PosterView: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -67,8 +70,12 @@ struct PosterView: View {
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
+                                bgm.buttonEffect.play()
                                 refreshToken = true
                                 textduration = 0.5
                                 lettersShowing = 0
@@ -80,6 +87,9 @@ struct PosterView: View {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -118,5 +128,6 @@ struct Poste1View_Previews: PreviewProvider {
     static var previews: some View {
         PosterView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

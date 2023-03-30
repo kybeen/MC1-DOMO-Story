@@ -22,7 +22,7 @@ struct StartView: View {
                 .ignoresSafeArea()
 
             VStack(alignment: .leading) {
-                MyText(text: "\(user.nickname)님. \n이제부터 당신은 『도모쿤』 입니다.", fontSize: 40)
+                MyText(text: "\(user.nickname) 님. \n이제부터 당신은 『도모쿤』 입니다.", fontSize: 40)
                     .lineSpacing(16)
                     .padding(.leading, 100)
                     .padding(.top, 120)

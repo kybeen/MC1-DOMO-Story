@@ -14,6 +14,7 @@ struct ContactDreamView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -53,6 +54,7 @@ struct ContactDreamView: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -67,6 +69,9 @@ struct ContactDreamView: View {
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -76,11 +81,17 @@ struct ContactDreamView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                             // 백 버튼 -> GetNumberView
                             PopView(destination: .view(withId: "GetNumberViewID")) {
                                 ScriptButtonText(text: "BACK")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                             // 간단한 pop -> 이전 화면으로
                             // PopView {
                             //    ScriptButtonText(text: "BACK")
@@ -136,5 +147,6 @@ struct ContactDreamView_Previews: PreviewProvider {
     static var previews: some View {
         ContactDreamView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }
