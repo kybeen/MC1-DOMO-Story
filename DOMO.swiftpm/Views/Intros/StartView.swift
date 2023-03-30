@@ -22,7 +22,7 @@ struct StartView: View {
 
             VStack(alignment: .leading) {
                 
-                MyText(text: "\(user.nickname)님. \n이제부터 당신은 『도모쿤』 입니다.", fontSize: 40)
+                MyText(text: "\(user.nickname) 님. \n이제부터 당신은 『도모쿤』 입니다.", fontSize: 40)
                     .lineSpacing(16)
                     .padding(.leading, 100)
                     .padding(.top, 120)
@@ -30,7 +30,7 @@ struct StartView: View {
 
                 PushView(destination: Baldan1View()) {
                     MyUnderlineText(
-                        text: "아니, 그럼 왜 물어봤어요? (시작)",
+                        text: "아니, 그럼 왜 물어본거야?! (시작)",
                         fontSize: 40,
                         arrowColor: Color("TitleColor"),
                         textColor: .white,
