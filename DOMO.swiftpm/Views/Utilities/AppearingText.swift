@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct AppearingText: View, Animatable {
+    @EnvironmentObject var bgm: BGM
     var fullText: String
     var numberOfLettersShow: Double
+//    @State var max:
     var font: Font
     var animatableData: Double {
         get { numberOfLettersShow }
@@ -28,17 +30,17 @@ struct AppearingText: View, Animatable {
     var body: some View {
         Text(
             Int(numberOfLettersShow) > fullText.count ?
-                portionOfText : portionOfText.dropLast()).font(font)
-            + Text(
-                portionOfText.dropFirst(
+                portionOfText : portionOfText.dropLast() +  portionOfText.dropFirst(
                     Int(numberOfLettersShow) > fullText.count ?
                         numberOfLettersShowing :
                         numberOfLettersShowing - 1 < 0 ?
                         numberOfLettersShowing :
                         numberOfLettersShowing - 1
                 )
-            )
-            .font(font)
-//            .baselineOffset(numberOfLettersShowing % 2 == 0 ? -1 : 1)
+        )
+        .font(font)
+        .onChange(of: numberOfLettersShow){ _ in
+            bgm.happyEffect.play()
+        }
     }
 }

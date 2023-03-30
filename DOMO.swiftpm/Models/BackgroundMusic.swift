@@ -14,6 +14,9 @@ class BGM: ObservableObject {
     @Published var wrongBGM: Sound = .init(url: Bundle.main.url(forResource: "wrong_music", withExtension: "mp3")!)!
     @Published var firstBGM: Sound = .init(url: Bundle.main.url(forResource: "first_background_music", withExtension: "mp3")!)!
     @Published var secondBGM: Sound = .init(url: Bundle.main.url(forResource: "second_background_music", withExtension: "mp3")!)!
+    @Published var happyEffect: Sound = .init(url: Bundle.main.url(forResource: "domo_happy_music", withExtension: "mp3")!)!
+    @Published var speakEffect: Sound = .init(url: Bundle.main.url(forResource: "domo_speak_music", withExtension: "mp3")!)!
+
     @Published var failedBGM: Sound = .init(url: Bundle.main.url(forResource: "domo_failed_trimmed", withExtension: "m4a")!)! // 실패 BGM
     
     @Published var buttonEffect: Sound = .init(url: Bundle.main.url(forResource: "button_effect_music", withExtension: "mp3")!)!

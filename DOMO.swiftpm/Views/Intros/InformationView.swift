@@ -110,7 +110,6 @@ struct InformationView: View {
                             nicknameDone = false
                             isButtonAnimating = false
                             user.nickname = "" // 입력창의 닉네임도 지워줘야함
-                            //print(user.nickname)
                             focusField = .focused
                             bgm.cancelEffect.play()
                         } label: {
