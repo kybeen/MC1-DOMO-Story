@@ -39,6 +39,8 @@ struct ContactDreamView: View {
                 .frame(width: screenWidth, height: screenHeight)
                 .onAppear{
                     bgm.happyEffect.volume = 0.5
+                    bgm.firstBGM.resume()
+                    bgm.failedBGM.stop()
                 }
             VStack {
                 Spacer()

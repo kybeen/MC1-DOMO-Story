@@ -40,6 +40,7 @@ struct SelectionContactView: View {
                     }
                     .simultaneousGesture(TapGesture().onEnded{
                         bgm.selectEffect.play()
+                        bgm.failedBGM.stop()
                     })
                     // 선택지 2 -> ContactCallingView
                     PushView(destination: ContactCallingView()) {
@@ -95,7 +96,7 @@ struct SelectionContactView: View {
                     }
                     .simultaneousGesture(TapGesture().onEnded{
                         bgm.selectEffect.play{ completed in
-                            bgm.failedEffect.play()
+                            bgm.wrongBGM.play()
                         }
                     })
                 }
