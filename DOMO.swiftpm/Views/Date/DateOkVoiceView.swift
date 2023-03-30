@@ -27,6 +27,10 @@ struct DateOkVoiceView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+                .onAppear{
+                    bgm.firstBGM.stop()
+                    bgm.secondBGM.play()
+                }
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
