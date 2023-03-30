@@ -17,6 +17,7 @@ struct MemberView: View {
             Color.black
             
             VStack {
+                Spacer()
                 // 제목
                 HStack {
                     MyText(text: "DOYEONSI by First", fontSize: 50)
@@ -24,7 +25,6 @@ struct MemberView: View {
                         .font(.custom(.DungGeunMo, size: 50))
                         .foregroundColor(.red)
                 }
-                .padding(.top, 70)
                 .padding(.bottom, 40)
                 
                 // 1행
@@ -41,6 +41,7 @@ struct MemberView: View {
                         MemberSubView(name: name)
                     }
                 }
+                .padding(.bottom, 70)
                 Spacer()
             }
         }
