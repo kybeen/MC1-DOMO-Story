@@ -10,6 +10,7 @@ struct MyApp: App {
         WindowGroup {
             SplashView()
                 .environmentObject(UserSettings())
+                .environmentObject(BGM())
         }
     }
 }

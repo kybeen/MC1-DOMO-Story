@@ -18,9 +18,9 @@ struct Final1View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     let backgroundIamge = "BackgroundFlower"
-    let domoImage = "DomoStand"
+    let domoImage = "DomoHorray"
     // 이름
-    let name = "설레는 도모쿤♫~♪~!"
+    let name = "심장박동이 빨라진 도모쿤♫~♪~!"
     // 대사
     @State var script = " 쿠쿠. 너가 내 처음이닷! "
     var body: some View {
@@ -36,8 +36,7 @@ struct Final1View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(30))
-                        // .resizable()
+                        .resizable()
                         .scaledToFit()
                         .frame(height: screenHeight * 0.7)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
@@ -74,7 +73,6 @@ struct Final1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }

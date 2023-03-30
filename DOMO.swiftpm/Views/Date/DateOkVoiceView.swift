@@ -68,7 +68,7 @@ struct DateOkVoiceView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: SelectionDateView()) {
+                            PushView(destination: AfterDate1View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }

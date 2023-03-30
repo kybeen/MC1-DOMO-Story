@@ -8,13 +8,12 @@
 // 타이틀 화면
 import AVFoundation
 import SwiftUI
-
-// import PlaygroundSupport
+import SwiftySound
 
 struct TitleView: View {
     @State private var isAnimating = false // 깜빡거리는 효과를 위한 state변수
-    @State var player: AVAudioPlayer?
-
+    @EnvironmentObject var bgm: BGM
+    
     var body: some View {
         ZStack {
             Color("TitleColor")
@@ -26,19 +25,7 @@ struct TitleView: View {
                         Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
                             isAnimating.toggle()
                         }
-                        guard let url = Bundle.main.url(forResource: "background_music", withExtension: "mp3") else { return }
-                        do {
-                            try AVAudioSession.sharedInstance().setCategory(.ambient)
-                            try AVAudioSession.sharedInstance().setActive(true)
-
-                            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-                            guard let player = player else { return }
-
-                            player.play()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                        bgm.titleBGM.play()
                     }
                     .padding(.top, 100)
                     .padding(.bottom, 42)
@@ -46,6 +33,9 @@ struct TitleView: View {
                 MyText(text: "TAP TO START", fontSize: 28)
                     .padding(.bottom, 74)
                     .foregroundColor(.white)
+                    .onDisappear {
+                        bgm.coinEffect.play()
+                    }
 
                 MyText(text: "\" 너가 내 처음이닷 \"", fontSize: 40)
                     .padding(.bottom, 30)
@@ -59,12 +49,10 @@ struct TitleView: View {
     }
 }
 
-// let view = TitleView()
-// let controller = UIHostingController(rootView: view)
-
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
         TitleView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

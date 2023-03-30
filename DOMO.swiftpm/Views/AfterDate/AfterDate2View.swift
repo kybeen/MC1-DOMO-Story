@@ -12,6 +12,7 @@ struct AfterDate2View: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @State private var moveUp: Bool = false
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -20,11 +21,11 @@ struct AfterDate2View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     let backgroundIamge = "BackgroundFlower"
-    let domoImage = ""
+    let domoImage = "DomoBack"
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "  "
+    @State var script = " (터벅터벅 나의 일상) "
     var body: some View {
         ZStack {
             // 배경 사진
@@ -38,17 +39,20 @@ struct AfterDate2View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(30))
-                        // .resizable()
-                        .scaledToFit()
-                        .frame(height: screenHeight * 0.7)
+                        .resizable()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
-                }
+                        .frame(width: 426, height: 461)
+                        .offset(y: moveUp ? -40 : 0)
+                        .onAppear { // 1초마다 타이머 동작하면서 isAnimating값 변경
+                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
+                                moveUp.toggle()
+                            }
+                        }
+                        .animation(.easeInOut(duration: 0.6), value: moveUp)                }
             }
 
             VStack {
                 Spacer()
-
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -85,6 +89,7 @@ struct AfterDate2View: View {
                             }
                         }
                         .padding(.vertical, screenHeight * 0.03)
+                        
                         Rectangle()
                             .fill(LinearGradient(
                                 gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),

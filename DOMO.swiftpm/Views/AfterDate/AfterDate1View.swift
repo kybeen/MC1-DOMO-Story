@@ -18,11 +18,11 @@ struct AfterDate1View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     let backgroundIamge = "BackgroundC5ChB"
-    let domoImage = "DomoStand"
+    let domoImage = "DomoFly"
     // 이름
     let name = "설레는 도모쿤♫~♪~!"
     // 대사
-    @State var script = "오이오이... 그렇다면 넌 내일 와타시와 『벚꽃』을 보러 가는 것이다! \n내일을 위해 무려 시간을 비워뒀다고욧! (훗.. 이 정도 쯤이야) "
+    @State var script = "오이오이... 넌 내일 와타시와 『벚꽃』을 보러 가는 것이다!\n내일을 위해 무려 시간을 비워뒀다고욧! (훗.. 이 정도 쯤이야) "
     var body: some View {
         ZStack {
             // 배경 사진
@@ -36,11 +36,11 @@ struct AfterDate1View: View {
                 HStack {
                     Spacer()
                     Image(domoImage)
-                        .rotationEffect(.degrees(30))
-                        // .resizable()
+                        .resizable()
                         .scaledToFit()
-                        .frame(height: screenHeight * 0.7)
+                        .frame(width:665, height:800)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 100))
+                        .position(x:950,y:500)
                 }
             }
 
@@ -74,10 +74,11 @@ struct AfterDate1View: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            
+
                             PushView(destination: AfterDate2View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
