@@ -46,6 +46,9 @@ struct MemberView: View {
                         bgm.okEffect.play()
                     }
                 }
+                .onDisappear{
+                    bgm.okEffect.stop()
+                }
                 
                 // 1행
                 HStack(spacing: 90) {

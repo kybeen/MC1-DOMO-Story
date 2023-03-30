@@ -22,34 +22,37 @@ struct Final2View: View {
     static let mintColor = Color(red: 66 / 255, green: 255 / 255, blue: 232 / 255)
 
     var body: some View {
-        ZStack {
-            // 배경 사진
-            Image(backgroundIamge)
-                .resizable()
-                .scaledToFill()
-                .frame(height: screenHeight)
-                .onAppear{
-                    bgm.happyEffect.volume = 0.5
+        NavigationView {
+            ZStack {
+                // 배경 사진
+                Image(backgroundIamge)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: screenHeight)
+                    .onAppear{
+                        bgm.happyEffect.volume = 0.5
+                        isButtonVisible = true
+                    }
+                Color.black
+                    .opacity(0.6)
+                VStack {
+                    Image(logoImage)
+                    PushView(destination: MemberView()) {
+                        Text("The end ...")
+                            .font(.custom(.DungGeunMo, size: 70))
+                            .foregroundColor(Self.mintColor)
+                    }
+                }
+                .offset(y: isButtonVisible ? 0 : 600)
+                .animation(.easeInOut(duration: 1.5), value: isButtonVisible)
+                .onAppear {
                     isButtonVisible = true
-                }
-            Color.black
-                .opacity(0.6)
-            VStack {
-                Image(logoImage)
-                PushView(destination: MemberView()) {
-                    Text("The end ...")
-                        .font(.custom(.DungGeunMo, size: 70))
-                        .foregroundColor(Self.mintColor)
+                    bgm.successEffect.play()
                 }
             }
-            .offset(y: isButtonVisible ? 0 : 600)
-            .animation(.easeInOut(duration: 1.5), value: isButtonVisible)
-            .onAppear {
-                isButtonVisible = true
-                bgm.successEffect.play()
-            }
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
