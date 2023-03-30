@@ -8,7 +8,7 @@
 import NavigationStack
 import SwiftUI
 
-struct Sulmoon5View: View {
+struct SulmoonJoongView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
@@ -19,13 +19,13 @@ struct Sulmoon5View: View {
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
 
     // 이름
-    let name = "물음표 살인마 도모쿤♫~♪~!"
+    let name = "쫑긋 도모쿤♫~♪~!"
     // 대사
-    @State var script = "새로운 사람을 알아갈 때 무엇이 중요한지 말해주면 고맙겠다만?"
+    @State var script = "(설문 중♫~♪~!) 휘리릭"
     // 배경화면
-    let backgroundIamge = "BackgroundTable"
+    let backgroundIamge = "BackgroundFew"
     // 도모쿤 이미지
-    let domoImage = "DomoShoutReverse"
+    let domoImage = ""
 
     var body: some View {
         ZStack {
@@ -78,7 +78,7 @@ struct Sulmoon5View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: SulmoonJoongView()) {
+                            PushView(destination: Sulmoon6View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -116,9 +116,9 @@ struct Sulmoon5View: View {
     }
 }
 
-struct Sulmoon5View_Previews: PreviewProvider {
+struct SulmoonJoongView_Previews: PreviewProvider {
     static var previews: some View {
-        Sulmoon5View()
+        SulmoonJoongView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
