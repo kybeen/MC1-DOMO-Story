@@ -22,9 +22,8 @@ struct SeperatedTextField: View {
                     index: i,
                     onChange: { i, c in
                         focused = c.isEmpty ? i - 1 : i + 1
-                        characters[i] = c.isEmpty ? " " : c
+                        characters[i] = c
                         string = getString()
-                        
                     }
                 )
             }
