@@ -12,6 +12,7 @@ struct Sulmoon8View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @State private var moveUp: Bool = false
     @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
@@ -43,6 +44,13 @@ struct Sulmoon8View: View {
                     .frame(height: screenHeight * 0.65)
                     .padding(.bottom, 160)
                     .padding(.leading, 200)
+                    .offset(y: moveUp ? -60 : 20)
+                    .onAppear { // 1초마다 타이머 동작하면서 isAnimating값 변경
+                        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
+                            moveUp.toggle()
+                        }
+                    }
+                    .animation(.easeInOut(duration: 0.2), value: moveUp)
             }
             VStack {
                 Spacer()
