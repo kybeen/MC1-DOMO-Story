@@ -12,8 +12,14 @@ import SwiftUI
 struct InformationView: View {
     @EnvironmentObject var user: UserSettings // 닉네임 입력
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
-    @State private var isInputAnimating = false // 입력창 깜빡거리는 효과를 위한 state변수
-    @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
+    @State private var isInputAnimating: Bool = false // 입력창 깜빡거리는 효과를 위한 state변수
+    @State private var isButtonAnimating: Bool = false // 버튼 깜빡거리는 효과를 위한 state변수
+    
+    enum Field {
+        case focused
+        case notFocused
+    }
+    @FocusState var focusField: Field?
 
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -29,27 +35,40 @@ struct InformationView: View {
 
                 // 입력폼
                 HStack {
-                    MyText(text: ">>>", fontSize: 40, textColor: .gray)
-                        .padding(.leading, 100)
-                        .opacity(isInputAnimating ? 0.3 : 1.0)
-                        .onAppear {
-                            Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
-                                if nicknameDone == false {
-                                    isInputAnimating.toggle()
+                    if let focus: Field = focusField { // 입력 필드에 focus가 가있을 때만 화살표 보임
+                        if focus == .focused {
+                            MyText(text: ">>>", fontSize: 40, textColor: .gray)
+                                .opacity(isInputAnimating ? 0.3 : 1.0)
+                                .onAppear {
+                                    Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
+                                        if nicknameDone == false {
+                                            isInputAnimating.toggle()
+                                        }
+                                    }
                                 }
-                            }
                         }
+                    }
 
+                    
                     SeperatedTextField(length: 8, string: $user.nickname)
                         .padding(.leading, 16)
-
-                    // 확인 버튼
+                        .focused($focusField, equals: .focused)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.characters) // 대문자 영어만 입력되도록
+                    
+                    /* 확인 버튼 */
                     Button {
-                        if user.nickname != "" {
+                        if user.nickname != "" { // 닉네임 입력이 돼있는 경우
                             nicknameDone = true
                             isButtonAnimating = true
                             isInputAnimating = false
+                            focusField = .notFocused
+                            hideKeyboard()
+                        } else { // 닉네임 입력이 안돼있는 경우
+                            focusField = .notFocused
+                            hideKeyboard()
                         }
+                        print(user.nickname) // 디버깅용
                     } label: {
                         Text("확인")
                             .font(.custom(.DungGeunMo, size: 30))
@@ -58,6 +77,7 @@ struct InformationView: View {
                             .foregroundColor(.gray)
                     }
                 }
+                .padding(.leading, 100)
                 
                 if nicknameDone == true {
                     VStack(alignment: .leading) {
@@ -71,13 +91,13 @@ struct InformationView: View {
                                 isBtnAnimating: true
                             )
                         }
-
                         
                         /* 취소 버튼 */
                         Button {
                             nicknameDone = false
                             isButtonAnimating = false
                             user.nickname = "" // 입력창의 닉네임도 지워줘야함
+                            focusField = .focused
                         } label: {
                             MyUnderlineText(
                                 text: "아닙니다. 다시 입력하고 싶어요.",
@@ -94,6 +114,13 @@ struct InformationView: View {
                 }
             }
         }
+    }
+}
+
+// 키보드를 내리는 메소드를 View에서 쉽게 사용하기 위해 extension으로 정의
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
