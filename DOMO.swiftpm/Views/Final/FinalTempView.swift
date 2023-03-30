@@ -1,5 +1,5 @@
 //
-//  FinalTempView.swift
+//  Final2View.swift
 //  
 //
 //  Created by Chaeeun Shin on 2023/03/30.
@@ -8,7 +8,7 @@
 import SwiftUI
 import NavigationStack
 
-struct FinalTempView: View {
+struct Final2View: View {
     @State var lettersShowing: Double = 0
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
@@ -44,10 +44,10 @@ struct FinalTempView: View {
                         // 대화창 상단
                         HStack {
                             // 이름
-                            Text(name)
-                                .font(.custom(.DungGeunMo, size: 40))
-                                .foregroundColor(.white)
-                                .padding(.leading, screenWidth * 0.05)
+//                            Text(name)
+//                                .font(.custom(.DungGeunMo, size: 40))
+//                                .foregroundColor(.white)
+//                                .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             BackButton()
                             // 리플레이 버튼
@@ -56,7 +56,6 @@ struct FinalTempView: View {
                                 textduration = 0.5
                                 lettersShowing = 0
                             } label: {
-                                BackButton()
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -82,7 +81,7 @@ struct EndingView: View {
     let logoImage = "Success"
     var body: some View {
         ZStack {
-//            FinalTempView()
+            Final2View()
             Color.black
                 .opacity(0.6)
             VStack {
@@ -94,17 +93,18 @@ struct EndingView: View {
                 }
             }
             .offset(y: isButtonVisible ? 0 : 600)
-            .animation(.easeInOut(duration: 1.5))
+            .animation(.easeInOut(duration: 1.5), value: isButtonVisible)
             .onAppear {
                 isButtonVisible = true
             }
         }
+        .ignoresSafeArea()
     }
 }
 
-struct FinalTempView_Previews: PreviewProvider {
+struct Final2View_Previews: PreviewProvider {
     static var previews: some View {
-        FinalTempView()
+        Final2View()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
