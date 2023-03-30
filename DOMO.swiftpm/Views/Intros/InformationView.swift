@@ -75,6 +75,7 @@ struct InformationView: View {
                             focusField = .notFocused
                             hideKeyboard()
                         }
+                        bgm.okEffect.play()
                         print(user.nickname) // 디버깅용
                     } label: {
                         Text("확인")
@@ -98,6 +99,9 @@ struct InformationView: View {
                                 textColor: .white,
                                 isBtnAnimating: true
                             )
+                            .onDisappear {
+                                bgm.decideEffect.play()
+                            }
                         }
 
                         // 취소 버튼
@@ -108,6 +112,7 @@ struct InformationView: View {
                             user.nickname = "" // 입력창의 닉네임도 지워줘야함
                             //print(user.nickname)
                             focusField = .focused
+                            bgm.cancelEffect.play()
                         } label: {
                             MyUnderlineText(
                                 text: "아닙니다. 다시 입력하고 싶어요.",
