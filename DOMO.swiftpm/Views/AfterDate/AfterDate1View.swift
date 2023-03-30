@@ -77,6 +77,7 @@ struct AfterDate1View: View {
                             // 뒤로가기 버튼
                             BackButton()
                                 .simultaneousGesture(TapGesture().onEnded{
+                                    bgm.secondBGM.stop()
                                     bgm.buttonEffect.play()
                                 })
                             // 리플레이 버튼
@@ -109,7 +110,7 @@ struct AfterDate1View: View {
                             .frame(width: screenWidth * 0.5, height: screenHeight * 0.015)
                             .padding(.bottom, screenHeight * 0.03)
                             .onAppear {
-                                textduration = 1.0
+                                textduration = 3.0
                                 lettersShowing += Double(script.count)
                             }
                         // 대사

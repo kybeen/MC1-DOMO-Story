@@ -13,9 +13,9 @@ struct DateOkVoiceView: View {
     static let gradientEnd = Color(red: 219 / 255, green: 255 / 255, blue: 248 / 255).opacity(0)
     @State var text: String = ""
     // 이름
-    let name = "????"
+    let name = "도모쿤에게 마음을 빼앗겨버린 그녀!!@#!"
     // 대사
-    let script = "좋아요! 그럼 내일 C5 앞에서 볼까요? (여자 음성)"
+    let script = "그 말만을 기다리구 있었다구요~!@!\n그럼 내일 C5 앞에서.. 기다릴게요ヾ(๑╹◡╹)ﾉ"
     // 배경화면
     let backgroundIamge = "BackgroundHeart"
    
@@ -60,6 +60,7 @@ struct DateOkVoiceView: View {
                             BackButton()
                                 .simultaneousGesture(TapGesture().onEnded {
                                     bgm.buttonEffect.play()
+                                    bgm.secondBGM.stop()
                                 })
                             // 리플레이 버튼
                             Button {
