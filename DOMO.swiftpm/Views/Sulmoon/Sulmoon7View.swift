@@ -27,7 +27,6 @@ struct Sulmoon7View: View {
     // 도모쿤 이미지
     let domoImage = "DomoLie"
 
-
     var body: some View {
         ZStack {
             // 배경 사진
@@ -37,11 +36,11 @@ struct Sulmoon7View: View {
                 .frame(width: screenWidth)
             VStack {
                 Spacer()
-                    Image(domoImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: screenHeight * 0.43)
-                        .padding(.bottom, 240)
+                Image(domoImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: screenHeight * 0.43)
+                    .padding(.bottom, 240)
             }
             VStack {
                 Spacer()
@@ -65,6 +64,8 @@ struct Sulmoon7View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
+
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

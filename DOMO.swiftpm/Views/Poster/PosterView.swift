@@ -1,12 +1,12 @@
 //
 //  PosterView.swift
-//  
+//
 //
 //  Created by Chaeeun Shin on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct PosterView: View {
     @State var lettersShowing: Double = 0
@@ -21,7 +21,7 @@ struct PosterView: View {
     // 이름
     let name = "설렘가득 도모쿤♫~♪~!"
     // 대사
-    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다.)"
+    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다)"
     var body: some View {
         ZStack {
             // 배경 사진
@@ -42,7 +42,7 @@ struct PosterView: View {
                 .padding(.bottom, 89)
             }
             .padding(.trailing, 354)
-            
+
             VStack {
                 Spacer()
 
@@ -66,6 +66,7 @@ struct PosterView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -75,7 +76,7 @@ struct PosterView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: SelectPosterView()){
+                            PushView(destination: SelectPosterView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -117,6 +118,5 @@ struct Poste1View_Previews: PreviewProvider {
     static var previews: some View {
         PosterView()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }

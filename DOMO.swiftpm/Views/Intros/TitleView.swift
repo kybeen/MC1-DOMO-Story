@@ -8,7 +8,8 @@
 // 타이틀 화면
 import AVFoundation
 import SwiftUI
-//import PlaygroundSupport
+
+// import PlaygroundSupport
 
 struct TitleView: View {
     @State private var isAnimating = false // 깜빡거리는 효과를 위한 state변수
@@ -57,14 +58,13 @@ struct TitleView: View {
         .ignoresSafeArea()
     }
 }
-//let view = TitleView()
-//let controller = UIHostingController(rootView: view)
 
+// let view = TitleView()
+// let controller = UIHostingController(rootView: view)
 
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
         TitleView()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }

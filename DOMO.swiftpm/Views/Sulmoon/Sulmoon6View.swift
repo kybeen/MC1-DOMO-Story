@@ -36,11 +36,11 @@ struct Sulmoon6View: View {
                 .frame(width: screenWidth)
             VStack {
                 Spacer()
-                    Image(domoImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: screenHeight * 0.43)
-                        .padding(.bottom, 240)
+                Image(domoImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: screenHeight * 0.43)
+                    .padding(.bottom, 240)
             }
             VStack {
                 Spacer()
@@ -64,6 +64,8 @@ struct Sulmoon6View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
+
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

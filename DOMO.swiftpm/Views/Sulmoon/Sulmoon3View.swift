@@ -21,7 +21,7 @@ struct Sulmoon3View: View {
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
-    @State var script = "저-기-요. 당신을 말하는 겁니다만?"
+    @State var script = "저ㅡ기ㅡ요. \n당신을 말하는 겁니다만?"
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
@@ -68,6 +68,7 @@ struct Sulmoon3View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true

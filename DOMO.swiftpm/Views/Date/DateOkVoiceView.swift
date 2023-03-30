@@ -1,15 +1,15 @@
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct DateOkVoiceView: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
-    
+
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
-    static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
-    static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
+    static let gradientStart = Color(red: 29 / 255, green: 84 / 255, blue: 74 / 255)
+    static let gradientEnd = Color(red: 219 / 255, green: 255 / 255, blue: 248 / 255).opacity(0)
     @State var text: String = ""
     // 이름
     let name = "????"
@@ -29,14 +29,14 @@ struct DateOkVoiceView: View {
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
-                HStack {
-                    Spacer()
-                    Image("")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:665, height:600)
-                        .position(x:300, y:600)
-                }
+//                HStack {
+//                    Spacer()
+//                    Image("")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width:665, height:600)
+//                        .position(x:300, y:600)
+//                }
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
@@ -57,6 +57,8 @@ struct DateOkVoiceView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            //뒤로가기 버튼
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -111,4 +113,3 @@ struct Previews_DateOkVoiceView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-
