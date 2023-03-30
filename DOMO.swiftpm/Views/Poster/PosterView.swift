@@ -31,6 +31,9 @@ struct PosterView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+                .onAppear {
+                    bgm.happyEffect.volume = 0.5
+                }
 
             HStack {
                 Spacer()
@@ -58,6 +61,7 @@ struct PosterView: View {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             refreshToken = false
                         }
                     VStack(alignment: .leading, spacing: 0) {

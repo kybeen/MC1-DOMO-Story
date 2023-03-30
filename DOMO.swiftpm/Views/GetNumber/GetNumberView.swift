@@ -128,6 +128,9 @@ struct GetNumberView: View {
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            bgm.yahoEffect.play()
+        }
     }
 }
 
