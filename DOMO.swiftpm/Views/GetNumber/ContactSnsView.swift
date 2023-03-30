@@ -40,6 +40,7 @@ struct ContactSnsView: View {
                 .onAppear{
                     bgm.firstBGM.pause()
                     bgm.failedBGM.play()
+                    bgm.happyEffect.volume = 0.5
                 }
             Color.black
                 .opacity(0.7)
@@ -81,6 +82,7 @@ struct ContactSnsView: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }
