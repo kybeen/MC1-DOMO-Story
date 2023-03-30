@@ -33,7 +33,7 @@ struct Baldan3View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
-
+                .onAppear { bgm.handEffect.play() }
             VStack {
                 Spacer()
                 // 대화창
@@ -59,7 +59,7 @@ struct Baldan3View: View {
                             Spacer()
                             // 뒤로가기 버튼
                             BackButton()
-                                .simultaneousGesture(TapGesture().onEnded{
+                                .simultaneousGesture(TapGesture().onEnded {
                                     bgm.buttonEffect.play()
                                 })
                             // 리플레이 버튼
@@ -71,14 +71,14 @@ struct Baldan3View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
                             PushView(destination: Baldan4View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded{
+                            .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
                         }
@@ -120,6 +120,5 @@ struct Baldan3View_Previews: PreviewProvider {
         Baldan3View()
             .previewInterfaceOrientation(.landscapeLeft)
             .environmentObject(BGM())
-
     }
 }

@@ -25,5 +25,6 @@ struct SplashView_Previews: PreviewProvider {
         SplashView()
             .previewInterfaceOrientation(.landscapeLeft)
             .environmentObject(UserSettings())
+            .environmentObject(BGM())
     }
 }
