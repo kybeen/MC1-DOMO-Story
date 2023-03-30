@@ -19,6 +19,7 @@ struct Final2View: View {
     let backgroundIamge = "BackgroundFlower"
     let name = ""
     
+    
     var body: some View {
         ZStack {
             // 배경 사진
@@ -35,12 +36,6 @@ struct Final2View: View {
                     Rectangle()
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
-                        .onTapGesture {
-                            bgm.buttonEffect.play()
-                            textduration = refreshToken ? 3.0 : 1.0
-                            lettersShowing += Double(script.count)
-                            refreshToken = false
-                        }
 
                     VStack(alignment: .leading, spacing: 0) {
                         // 대화창 상단
