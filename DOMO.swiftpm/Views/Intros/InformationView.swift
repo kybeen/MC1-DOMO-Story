@@ -129,6 +129,5 @@ struct InformationView_Previews: PreviewProvider {
         InformationView()
             .environmentObject(UserSettings())
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }

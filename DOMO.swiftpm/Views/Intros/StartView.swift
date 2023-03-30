@@ -63,5 +63,7 @@ struct StartView_Previews: PreviewProvider {
     static var previews: some View {
         StartView()
             .environmentObject(UserSettings())
+            .previewInterfaceOrientation(.landscapeLeft)
+
     }
 }
