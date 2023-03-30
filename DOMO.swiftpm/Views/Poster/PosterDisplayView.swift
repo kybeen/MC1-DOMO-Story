@@ -1,12 +1,12 @@
 //
 //  PosterDisplayView.swift
-//  
+//
 //
 //  Created by Chaeeun Shin on 2023/03/29.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct PosterDisplayView: View {
     @State var lettersShowing: Double = 0
@@ -42,21 +42,19 @@ struct PosterDisplayView: View {
                 .padding(.bottom, 171)
             }
             .padding(.trailing, 45)
-            
+
             Color.black
                 .opacity(0.7)
-            
+
             VStack {
                 Spacer()
                 poster
                     .resizable()
                     .scaledToFit()
                     .frame(height: screenHeight * 0.55)
-                
             }
             .padding(.bottom, 320)
-            
-            
+
             VStack {
                 Spacer()
 
@@ -80,6 +78,7 @@ struct PosterDisplayView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -89,7 +88,7 @@ struct PosterDisplayView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: GetNumberView()){
+                            PushView(destination: GetNumberView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -131,7 +130,5 @@ struct PosterDisplayView_Previews: PreviewProvider {
     static var previews: some View {
         PosterDisplayView(name: "러블리 도모쿤♫~♪~!", poster: Image("PosterMarry"), script: "나 도모쿤이랑 결혼하면 행복은 보장된 것. 셋 셀테니 대답해주시죠?\n하나. 둘.. 둘 반의 반.. 반의 반의 반.. 반의 반의 당근당근.")
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }
-

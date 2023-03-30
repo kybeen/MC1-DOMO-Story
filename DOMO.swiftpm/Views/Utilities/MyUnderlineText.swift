@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by 김영빈 on 2023/03/29.
 //
@@ -9,14 +9,16 @@ import SwiftUI
 
 struct MyUnderlineText: View {
     @State private var isButtonAnimating = false // 버튼 깜빡거리는 효과를 위한 state변수
+
     @State var timer: Timer?
     
     var text: String // 텍스트 내용
     var fontSize: CGFloat // 폰트 크기
     var arrowColor: Color = .gray // >>> 화살표 색상
     var textColor: Color = .white // 텍스트 색상 (기본 흰색)
+
     var isBtnAnimating: Bool // 버튼 깜빡이 여부
-    
+
     var body: some View {
         HStack {
             Text(">>>")
@@ -27,8 +29,10 @@ struct MyUnderlineText: View {
                 .foregroundColor(textColor)
                 .opacity(isButtonAnimating ? 0.01 : 1.0)
                 .onAppear {
+
                     if (isBtnAnimating == true) { // isBtnAnimating이 true일때만 깜빡이 효과
                         timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { timer in
+
                             isButtonAnimating.toggle()
                         }
                     }
@@ -54,6 +58,7 @@ struct MyUnderlineText_Previews: PreviewProvider {
                 fontSize: 30,
                 arrowColor: Color("TitleColor"),
                 textColor: .white,
+
                 isBtnAnimating: true
             )
         }

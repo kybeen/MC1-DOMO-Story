@@ -1,12 +1,12 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by OhSuhyun on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct ContactSnsView: View {
     @State var lettersShowing: Double = 0
@@ -19,7 +19,7 @@ struct ContactSnsView: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    
+
     // 이름
     let name = "음침한 도모쿤♫~♪~!"
     // 대사
@@ -43,28 +43,29 @@ struct ContactSnsView: View {
                 // 도모쿤을 위한 자리
                 HStack {
                     Spacer()
-                    VStack() {
+                    VStack {
                         Image(domoImage)
                             .resizable()
                             .scaledToFit()
                             .frame(height: screenHeight * 0.8)
                             .padding(.trailing, 100)
-                        // 도모 회전
+                            // 도모 회전
                             .rotationEffect(.degrees(isRotating))
                             .onAppear {
                                 // 도모 회전 소요 시간
                                 withAnimation(.linear(duration: 1)
-                                    .speed(1)) {
-                                        // 회전할 각도
-                                        isRotating = -60.0
-                                    }
+                                    .speed(1))
+                                {
+                                    // 회전할 각도
+                                    isRotating = -60.0
+                                }
                             }
                         Spacer()
                             .frame(height: screenHeight * 0.12)
                     }
                 }
             }
-            VStack() {
+            VStack {
                 Spacer()
                 // 대화창
                 ZStack(alignment: .top) {
@@ -86,6 +87,7 @@ struct ContactSnsView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -96,7 +98,7 @@ struct ContactSnsView: View {
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                             // 넥스트 버튼 -> 이전 화면
-                            PopView() {
+                            PopView {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -126,10 +128,10 @@ struct ContactSnsView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    /* 구식 Next Button
-                    NextButton()
-                        .position(x: 1160, y: 190)
-                     */
+                    // 구식 Next Button
+                    // NextButton()
+                    //    .position(x: 1160, y: 190)
+                    //
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }

@@ -1,14 +1,14 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by OhSuhyun on 2023/03/28.
 //
 
 // 미사용 -> id를 사용한 pop 처리 필요
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct ContactDreamView: View {
     @State var lettersShowing: Double = 0
@@ -19,7 +19,7 @@ struct ContactDreamView: View {
     let screenWidth = UIScreen.main.bounds.size.width
     static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
     static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-    
+
     // 이름
     let name = "어리둥절한 도모쿤♫~♪~!"
     // 대사
@@ -66,6 +66,7 @@ struct ContactDreamView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            BackButton()
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -80,18 +81,18 @@ struct ContactDreamView: View {
                                 ScriptButtonText(text: "BACK")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            /* 간단한 pop -> 이전 화면으로
-                            PopView {
-                                ScriptButtonText(text: "BACK")
-                                    .padding(.trailing, screenWidth * 0.02)
-                            }
-                             */
-                            /* 넥스트 버튼 -> SelectionContactView
-                            PushView(destination: SelectionContactView()) {
-                                ScriptButtonText(text: "NEXT")
-                                    .padding(.trailing, screenWidth * 0.02)
-                            }
-                             */
+                            // 간단한 pop -> 이전 화면으로
+                            // PopView {
+                            //    ScriptButtonText(text: "BACK")
+                            //        .padding(.trailing, screenWidth * 0.02)
+                            // }
+                            //
+                            // 넥스트 버튼 -> SelectionContactView
+                            // PushView(destination: SelectionContactView()) {
+                            //    ScriptButtonText(text: "NEXT")
+                            //        .padding(.trailing, screenWidth * 0.02)
+                            // }
+                            //
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -118,10 +119,10 @@ struct ContactDreamView: View {
                         .padding(.horizontal, screenWidth * 0.05)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
-                    /* 구식 Next Button
-                    NextButton()
-                        .position(x: 1160, y: 190)
-                     */
+                    // 구식 Next Button
+                    // NextButton()
+                    //    .position(x: 1160, y: 190)
+                    //
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
             }

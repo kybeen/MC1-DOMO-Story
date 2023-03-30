@@ -5,8 +5,8 @@
 //  Created by 박상원 on 2023/03/28.
 //
 
-import SwiftUI
 import NavigationStack
+import SwiftUI
 
 struct Baldan1View: View {
     @State var lettersShowing: Double = 0
@@ -76,7 +76,7 @@ struct Baldan1View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: Baldan2View()){
+                            PushView(destination: Baldan2View()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
@@ -118,6 +118,5 @@ struct Baldan1View_Previews: PreviewProvider {
     static var previews: some View {
         Baldan1View()
             .previewInterfaceOrientation(.landscapeLeft)
-
     }
 }
