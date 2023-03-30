@@ -11,6 +11,7 @@ import SwiftUI
 
 struct InformationView: View {
     @EnvironmentObject var user: UserSettings // 닉네임 입력
+    @EnvironmentObject var bgm: BGM
     @State var nicknameDone: Bool = false // 닉네임 입력 여부
     @State private var isInputAnimating: Bool = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating: Bool = false // 버튼 깜빡거리는 효과를 위한 state변수
@@ -137,6 +138,7 @@ struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
         InformationView()
             .environmentObject(UserSettings())
+            .environmentObject(BGM())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
