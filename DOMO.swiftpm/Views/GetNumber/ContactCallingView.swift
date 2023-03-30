@@ -117,6 +117,7 @@ struct ContactCallingView: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
+                                bgm.failedBGM.pause()
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)

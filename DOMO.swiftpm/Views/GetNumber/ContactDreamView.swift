@@ -37,6 +37,10 @@ struct ContactDreamView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth, height: screenHeight)
+                .onAppear{
+                    bgm.firstBGM.resume()
+                    bgm.failedBGM.stop()
+                }
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
