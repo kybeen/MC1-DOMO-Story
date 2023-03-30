@@ -35,6 +35,9 @@ struct Sulmoon5View: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth)
+                .onAppear {
+                    bgm.happyEffect.volume = 0.5
+                }
             VStack {
                 Spacer()
                 HStack {
@@ -58,6 +61,7 @@ struct Sulmoon5View: View {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             refreshToken = false
                         }
                     VStack(alignment: .leading, spacing: 0) {

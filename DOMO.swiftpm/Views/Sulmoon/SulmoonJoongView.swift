@@ -35,17 +35,9 @@ struct SulmoonJoongView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth)
-//            VStack {
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Image(domoImage)
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(height: screenHeight * 0.73)
-//                        .padding(.bottom, 50)
-//                }
-//            }
+                .onAppear {
+                    bgm.happyEffect.volume = 0.5
+                }
             VStack {
                 Spacer()
                 // 대화창
@@ -58,6 +50,7 @@ struct SulmoonJoongView: View {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             refreshToken = false
                         }
                     VStack(alignment: .leading, spacing: 0) {
