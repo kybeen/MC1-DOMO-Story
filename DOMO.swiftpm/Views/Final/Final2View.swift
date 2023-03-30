@@ -16,14 +16,9 @@ struct Final2View: View {
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
-    static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
-    static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
-
     let backgroundIamge = "BackgroundFlower"
-    // 이름
-    let name = "설레는 도모쿤♫~♪~!"
-    // 대사
-    @State var script = " 쿠쿠. 너가 내 처음이닷! "
+    let name = ""
+    
     var body: some View {
         ZStack {
             // 배경 사진
@@ -32,7 +27,6 @@ struct Final2View: View {
                 .scaledToFill()
                 .frame(height: screenHeight)
 
-            
             VStack {
                 Spacer()
                 // 대화창
@@ -51,11 +45,11 @@ struct Final2View: View {
                     VStack(alignment: .leading, spacing: 0) {
                         // 대화창 상단
                         HStack {
-                            // 이름
-//                            Text(name)
-//                                .font(.custom(.DungGeunMo, size: 40))
-//                                .foregroundColor(.white)
-//                                .padding(.leading, screenWidth * 0.05)
+                            // 이름(버튼 높이 유지를 위해 살려둠)
+                            Text(name)
+                                .font(.custom(.DungGeunMo, size: 40))
+                                .foregroundColor(.white)
+                                .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             // 뒤로가기 버튼
                             BackButton()
@@ -84,7 +78,6 @@ struct Final2View: View {
                             })
                         }
                         .padding(.vertical, screenHeight * 0.03)
-
                     }
                 }
                 .frame(width: screenWidth, height: screenHeight * 0.3)
