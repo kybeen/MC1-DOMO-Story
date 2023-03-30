@@ -13,11 +13,13 @@ struct Final2View: View {
     @State private var textduration: Double = 1.0
     @State var refreshToken: Bool = false
     @EnvironmentObject var bgm: BGM
-
+    let logoImage = "Success"
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
     let backgroundIamge = "BackgroundFlower"
     let name = " "
+    @State private var isButtonVisible = false
+    static let mintColor = Color(red: 66 / 255, green: 255 / 255, blue: 232 / 255)
 
     var body: some View {
         ZStack {
@@ -28,68 +30,8 @@ struct Final2View: View {
                 .frame(height: screenHeight)
                 .onAppear{
                     bgm.happyEffect.volume = 0.5
+                    isButtonVisible = true
                 }
-
-            VStack {
-                Spacer()
-                // 대화창
-                ZStack(alignment: .top) {
-                    // 대화창 배경
-                    Rectangle()
-                        .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
-                        .opacity(0.72)
-
-                    VStack(alignment: .leading, spacing: 0) {
-                        // 대화창 상단
-                        HStack {
-                            // 이름(버튼 높이 유지를 위해 살려둠)
-                            Text(name)
-                                .font(.custom(.DungGeunMo, size: 40))
-                                .foregroundColor(.white)
-                                .padding(.leading, screenWidth * 0.05)
-                            Spacer()
-                            // 뒤로가기 버튼
-                            BackButton()
-                                .simultaneousGesture(TapGesture().onEnded {
-                                    bgm.buttonEffect.play()
-                                })
-                            // 리플레이 버튼
-                            Button {
-                                refreshToken = true
-                                textduration = 0.5
-                                lettersShowing = 0
-                            } label: {
-                                ScriptButtonText(text: "REPLAY")
-                                    .padding(.trailing, screenWidth * 0.02)
-                            }
-                            .simultaneousGesture(TapGesture().onEnded {
-                                bgm.buttonEffect.play()
-                            })
-                            PushView(destination: EndingView()) {
-                                ScriptButtonText(text: "NEXT")
-                                    .padding(.trailing, screenWidth * 0.02)
-                            }
-                            .simultaneousGesture(TapGesture().onEnded {
-                                bgm.buttonEffect.play()
-                            })
-                        }
-                        .padding(.vertical, screenHeight * 0.03)
-                    }
-                }
-                .frame(width: screenWidth, height: screenHeight * 0.3)
-            }
-        }
-        .ignoresSafeArea()
-    }
-}
-
-struct EndingView: View {
-    @State private var isButtonVisible = false
-    static let mintColor = Color(red: 66 / 255, green: 255 / 255, blue: 232 / 255)
-    let logoImage = "Success"
-    var body: some View {
-        ZStack {
-            Final2View()
             Color.black
                 .opacity(0.6)
             VStack {
@@ -104,6 +46,7 @@ struct EndingView: View {
             .animation(.easeInOut(duration: 1.5), value: isButtonVisible)
             .onAppear {
                 isButtonVisible = true
+                bgm.successEffect.play()
             }
         }
         .ignoresSafeArea()

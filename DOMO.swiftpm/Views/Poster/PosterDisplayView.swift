@@ -31,6 +31,10 @@ struct PosterDisplayView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
+                .onAppear{
+                    bgm.posterEffect.play()
+                    bgm.happyEffect.volume = 0.5
+                }
             HStack {
                 Spacer()
                 VStack {
@@ -68,6 +72,7 @@ struct PosterDisplayView: View {
                         .onTapGesture {
                             bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
+                            bgm.happyEffect.volume = refreshToken ? 0.5 : 0.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
                         }
@@ -94,13 +99,42 @@ struct PosterDisplayView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            PushView(destination: GetNumberView()) {
-                                ScriptButtonText(text: "NEXT")
-                                    .padding(.trailing, screenWidth * 0.02)
+                            if name == "귀여운 도모쿤♫~♪~!"{
+                                PushView(destination: GiveNumberView(poster: Image("PosterPicnic"), script: "꺄아앗! 도모쿤 초 카와이잇~!~@!\n(전화번호를 준다)")) {
+                                    ScriptButtonText(text: "NEXT")
+                                        .padding(.trailing, screenWidth * 0.02)
+                                }
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
                             }
-                            .simultaneousGesture(TapGesture().onEnded {
-                                bgm.buttonEffect.play()
-                            })
+                            else if name == "박력있는 도모쿤♫~♪~!"{
+                                PushView(destination: GiveNumberView(poster: Image("PosterDomo"), script: "꺄아앗! 도모쿤 박력 스게~!~@!\n(전화번호를 준다)")) {
+                                    ScriptButtonText(text: "NEXT")
+                                        .padding(.trailing, screenWidth * 0.02)
+                                }
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
+                            }
+                            else if name == "힙스터 도모쿤♫~♪~!"{
+                                PushView(destination: GiveNumberView(poster: Image("PosterBlue"), script: "꺄아앗! 도모쿤의 초궁극의 멋짐에 빠져버렷~!~@!\n(전화번호를 준다)")) {
+                                    ScriptButtonText(text: "NEXT")
+                                        .padding(.trailing, screenWidth * 0.02)
+                                }
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
+                            }
+                            else if name == "러블리 도모쿤♫~♪~!"{
+                                PushView(destination: GiveNumberView(poster: Image("PosterMarry"), script: "꺄아앗! 도모쿤 초 러블리데스~!~@!\n(전화번호를 준다)")) {
+                                    ScriptButtonText(text: "NEXT")
+                                        .padding(.trailing, screenWidth * 0.02)
+                                }
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
+                            }
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()

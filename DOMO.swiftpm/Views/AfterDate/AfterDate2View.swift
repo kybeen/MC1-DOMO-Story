@@ -36,6 +36,7 @@ struct AfterDate2View: View {
                 .frame(height: screenHeight)
                 .onAppear{
                     bgm.happyEffect.volume = 0.5
+                    bgm.walkEffect.play()
                 }
 
             VStack {
