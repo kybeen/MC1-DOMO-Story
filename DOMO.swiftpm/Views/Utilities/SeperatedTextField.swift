@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct SeperatedTextField: View {
-    var length: Int // 입력받은 글자 수
+    var length: Int // 입력받을 글자 수
     @FocusState var focused: Int?
-    // index별로 글자를 저장할 dictionary
-    @State var characters: [Int : String] = [:]
-
-    @Binding var string: String
+    @State var characters: [Int : String] = [:] // index별로 글자를 저장할 dictionary
+    @Binding var string: String // InformationView의 $nickname에 대한 바인딩 변수
     
     var body: some View {
         HStack {
-            ForEach(0 ..< length) { i in
+            ForEach(0 ..< length) { i in // length 만큼 CharacterField()를 생성해줌
                 CharacterField(focused: _focused, index: i) { i, c in
                     focused = c.isEmpty ? i - 1 : i + 1
                     characters[i] = c
@@ -27,6 +25,7 @@ struct SeperatedTextField: View {
         }.padding([.vertical], 10)
     }
     
+    // characters 딕셔너리에 저장된 글자들을 string으로 변환해주는 함수
     func getString() -> String {
         var str = ""
         for i in 0..<length {
