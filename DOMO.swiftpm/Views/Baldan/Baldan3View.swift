@@ -21,7 +21,7 @@ struct Baldan3View: View {
     // 이름
     let name = "도모쿤♫~♪~!"
     // 대사
-    @State var script = "하와와와... 손이 부딪혀버렸잖아?"
+    @State var script = "하와와와... 손이 부딪혀버렸잖아??!"
     // 배경화면
     let backgroundIamge = "BackgroundHand"
 
