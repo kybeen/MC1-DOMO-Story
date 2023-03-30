@@ -12,6 +12,7 @@ struct Sulmoon7View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -51,6 +52,7 @@ struct Sulmoon7View: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -65,9 +67,13 @@ struct Sulmoon7View: View {
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
 
                             // 리플레이 버튼
                             Button {
+                                bgm.buttonEffect.play()
                                 refreshToken = true
                                 textduration = 0.5
                                 lettersShowing = 0
@@ -79,6 +85,9 @@ struct Sulmoon7View: View {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
@@ -117,5 +126,6 @@ struct Sulmoon7View_Previews: PreviewProvider {
     static var previews: some View {
         Sulmoon7View()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

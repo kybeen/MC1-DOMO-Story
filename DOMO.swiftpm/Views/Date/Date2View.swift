@@ -5,6 +5,7 @@ struct Date2View: View {
     @State var lettersShowing: Double = 0
     @State var textduration: Double = 1.0
     @State var refreshToken: Bool = false
+    @EnvironmentObject var bgm: BGM
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
@@ -14,7 +15,7 @@ struct Date2View: View {
     let name = "의욕적인 도모쿤♫~♪~!"
     // 대사
     let script = "오늘 그녀에게 데이트 신청을 해버린다!!! \n(우효효효효~!)"
-    
+
     // 배경화면
     let backgroundIamge = "BackgroundTable"
     // 도모쿤 이미지
@@ -45,6 +46,7 @@ struct Date2View: View {
                         .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
+                            bgm.buttonEffect.play()
                             textduration = refreshToken ? 3.0 : 1.0
                             lettersShowing += Double(script.count)
                             refreshToken = false
@@ -58,8 +60,11 @@ struct Date2View: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
-                            //뒤로가기 버튼
+                            // 뒤로가기 버튼
                             BackButton()
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    bgm.buttonEffect.play()
+                                })
                             // 리플레이 버튼
                             Button {
                                 refreshToken = true
@@ -69,10 +74,16 @@ struct Date2View: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                             PushView(destination: SelectionDateView()) {
                                 ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                bgm.buttonEffect.play()
+                            })
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         // Divider
@@ -112,5 +123,6 @@ struct Previews_Date2View_Previews: PreviewProvider {
     static var previews: some View {
         Date2View()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }
