@@ -114,7 +114,8 @@ struct Sulmoon5View: View {
                         .lineSpacing(10.0)
                         .foregroundColor(.white)
                         .fixedSize()
-                        .padding(.horizontal, screenWidth * 0.05)
+                        .padding(.leading, screenWidth * 0.05)
+                        .padding(.trailing, screenWidth*0.03)
                         .animation(.linear(duration: textduration), value: lettersShowing)
                     }
                 }

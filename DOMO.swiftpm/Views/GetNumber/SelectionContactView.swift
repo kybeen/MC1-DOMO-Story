@@ -9,6 +9,7 @@ import NavigationStack
 import SwiftUI
 
 struct SelectionContactView: View {
+    @EnvironmentObject var bgm: BGM
     var body: some View {
         ZStack {
             Color.black
@@ -37,6 +38,9 @@ struct SelectionContactView: View {
                             )
                             .cornerRadius(34)
                     }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        bgm.selectEffect.play()
+                    })
                     // 선택지 2 -> ContactCallingView
                     PushView(destination: ContactCallingView()) {
                         Text("아니 통화버튼을 누르지 않고 무얼 하고 있는거야!!")
@@ -51,6 +55,11 @@ struct SelectionContactView: View {
                             )
                             .cornerRadius(34)
                     }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        bgm.selectEffect.play{ completed in
+                            bgm.wrongBGM.play()
+                        }
+                    })
                     // 선택지 3 -> ContactSnsView
                     PushView(destination: ContactSnsView()) {
                         Text("카톡 프로필로 그녀가 어디 사는 지 알아내보자-!")
@@ -65,6 +74,11 @@ struct SelectionContactView: View {
                             )
                             .cornerRadius(34)
                     }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        bgm.selectEffect.play{ completed in
+                            bgm.wrongBGM.play()
+                        }
+                    })
                     // 선택지 4 -> ContactNothingView
                     PushView(destination: ContactNothingView()) {
                         Text("(털썩..) 그녀는 이 밤에 곤히 자고 말거야…")
@@ -79,6 +93,11 @@ struct SelectionContactView: View {
                             )
                             .cornerRadius(34)
                     }
+                    .simultaneousGesture(TapGesture().onEnded{
+                        bgm.selectEffect.play{ completed in
+                            bgm.failedEffect.play()
+                        }
+                    })
                 }
             }
         }
@@ -90,5 +109,6 @@ struct SelectionContactView_Previews: PreviewProvider {
     static var previews: some View {
         SelectionContactView()
             .previewInterfaceOrientation(.landscapeLeft)
+            .environmentObject(BGM())
     }
 }

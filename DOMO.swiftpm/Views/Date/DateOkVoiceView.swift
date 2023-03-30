@@ -18,8 +18,7 @@ struct DateOkVoiceView: View {
     let script = "좋아요! 그럼 내일 C5 앞에서 볼까요? (여자 음성)"
     // 배경화면
     let backgroundIamge = "BackgroundHeart"
-    // 도모쿤 이미지
-    //    let domoImage = "DomoLove"
+   
     var body: some View {
         ZStack {
             // 배경 사진
@@ -27,21 +26,12 @@ struct DateOkVoiceView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: screenHeight)
-                .onAppear{
+                .onAppear {
                     bgm.firstBGM.stop()
                     bgm.secondBGM.play()
                 }
             VStack {
                 Spacer()
-                // 도모쿤을 위한 자리
-//                HStack {
-//                    Spacer()
-//                    Image("")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width:665, height:600)
-//                        .position(x:300, y:600)
-//                }
                 // 대화창
                 ZStack(alignment: .top) {
                     // 대화창 배경
