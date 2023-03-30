@@ -15,6 +15,8 @@ struct InformationView: View {
     @State private var isInputAnimating: Bool = false // 입력창 깜빡거리는 효과를 위한 state변수
     @State private var isButtonAnimating: Bool = false // 버튼 깜빡거리는 효과를 위한 state변수
 
+    @State var timer: Timer?
+
     enum Field {
         case focused
         case notFocused
@@ -23,6 +25,7 @@ struct InformationView: View {
     @FocusState var focusField: Field?
 
     var body: some View {
+        
         ZStack(alignment: .topLeading) {
             // 배경색
             Color.black.ignoresSafeArea()
@@ -37,15 +40,18 @@ struct InformationView: View {
                 // 입력폼
                 HStack {
                     if let focus: Field = focusField { // 입력 필드에 focus가 가있을 때만 화살표 보임
-                        if focus == .focused {
+                        if focus != .notFocused {
                             MyText(text: ">>>", fontSize: 40, textColor: .gray)
                                 .opacity(isInputAnimating ? 0.3 : 1.0)
                                 .onAppear {
-                                    Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
+                                    timer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
                                         if nicknameDone == false {
                                             isInputAnimating.toggle()
                                         }
                                     }
+                                }
+                                .onDisappear {
+                                    timer?.invalidate()
                                 }
                         }
                     }
@@ -94,9 +100,11 @@ struct InformationView: View {
 
                         // 취소 버튼
                         Button {
+                            print(user.nickname)
                             nicknameDone = false
                             isButtonAnimating = false
                             user.nickname = "" // 입력창의 닉네임도 지워줘야함
+                            //print(user.nickname)
                             focusField = .focused
                         } label: {
                             MyUnderlineText(

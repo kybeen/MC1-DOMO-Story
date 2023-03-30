@@ -29,7 +29,7 @@ struct StartView: View {
 
                 PushView(destination: Baldan1View()) {
                     MyUnderlineText(
-                        text: "아니. 왜요? (시작하기)",
+                        text: "아니, 그럼 왜 물어봤어요? (시작)",
                         fontSize: 40,
                         arrowColor: Color("TitleColor"),
                         textColor: .white,

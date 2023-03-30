@@ -8,8 +8,8 @@ struct DateOkVoiceView: View {
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
-    static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
-    static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
+    static let gradientStart = Color(red: 29 / 255, green: 84 / 255, blue: 74 / 255)
+    static let gradientEnd = Color(red: 219 / 255, green: 255 / 255, blue: 248 / 255).opacity(0)
     @State var text: String = ""
     // 이름
     let name = "????"
@@ -57,6 +57,7 @@ struct DateOkVoiceView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading, screenWidth * 0.05)
                             Spacer()
+                            //뒤로가기 버튼
                             BackButton()
                             // 리플레이 버튼
                             Button {

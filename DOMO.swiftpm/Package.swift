@@ -16,11 +16,10 @@ let package = Package(
         .iOSApplication(
             name: "DOMO",
             targets: ["AppModule"],
-            bundleIdentifier: "lotsofgrace",
-            teamIdentifier: "HBU35F77NV",
+            teamIdentifier: "TPXSTRCTFB",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .movieReel),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.yellow),
             supportedDeviceFamilies: [
                 .pad,

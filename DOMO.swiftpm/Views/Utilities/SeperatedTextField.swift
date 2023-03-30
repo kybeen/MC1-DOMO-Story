@@ -10,17 +10,25 @@ import SwiftUI
 struct SeperatedTextField: View {
     var length: Int // 입력받을 글자 수
     @FocusState var focused: Int?
-    @State var characters: [Int: String] = [:] // index별로 글자를 저장할 dictionary
+
+    @State var prevCursor: Int? // 이전 인덱스의 커서
+    @State var characters: [Int : String] = [:] // index별로 글자를 저장할 dictionary
     @Binding var string: String // InformationView의 $nickname에 대한 바인딩 변수
 
     var body: some View {
         HStack {
-            ForEach(0 ..< length, id: \.self) { i in // length 만큼 CharacterField()를 생성해줌
-                CharacterField(focused: _focused, index: i) { i, c in
-                    focused = c.isEmpty ? i - 1 : i + 1
-                    characters[i] = c
-                    string = getString()
-                }
+
+            ForEach(0 ..< length) { i in // length 만큼 CharacterField()를 생성해줌
+                CharacterField(
+                    focused: _focused,
+                    index: i,
+                    onChange: { i, c in
+                        focused = c.isEmpty ? i - 1 : i + 1
+                        characters[i] = c.isEmpty ? " " : c
+                        string = getString()
+                        
+                    }
+                )
             }
         }.padding([.vertical], 10)
     }

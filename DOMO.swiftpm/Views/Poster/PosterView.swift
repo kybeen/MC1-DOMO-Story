@@ -21,7 +21,7 @@ struct PosterView: View {
     // 이름
     let name = "설렘가득 도모쿤♫~♪~!"
     // 대사
-    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다.)"
+    @State var script = "(그녀에 대해 알았으니 이제는 나를 그녀에게 알릴 차례이다)"
     var body: some View {
         ZStack {
             // 배경 사진
