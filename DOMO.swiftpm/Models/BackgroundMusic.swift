@@ -23,6 +23,7 @@ class BGM: ObservableObject {
     @Published var keyboardEffect: Sound = .init(url: Bundle.main.url(forResource: "keyboard_effect", withExtension: "mp3")!)! // 키보드 효과음
     @Published var okEffect: Sound = .init(url: Bundle.main.url(forResource: "ok_effect", withExtension: "mp3")!)! // 확인 버튼 효과음
     @Published var decideEffect: Sound = .init(url: Bundle.main.url(forResource: "decide_effect", withExtension: "mp3")!)! // 닉네임 결정 버튼 효과음
+    @Published var yahoEffect: Sound = .init(url: Bundle.main.url(forResource: "yaho_effect", withExtension: "mp3")!)! // 끼얏호 효과음
     @Published var selectEffect: Sound = .init(url: Bundle.main.url(forResource: "select_effect_music", withExtension: "mp3")!)! // 선택지 결정 버튼 효과음
     @Published var runningEffect: Sound = .init(url: Bundle.main.url(forResource: "running_domo_music", withExtension: "mp3")!)! // 닉네임 결정 버튼 효과음
     @Published var failedEffect: Sound = .init(url: Bundle.main.url(forResource: "domo_failed_music", withExtension: "m4a")!)! // 잘못된 선택지 결정 버튼 효과음
