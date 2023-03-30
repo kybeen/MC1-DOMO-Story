@@ -34,17 +34,17 @@ struct SulmoonJoongView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: screenWidth)
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Image(domoImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: screenHeight * 0.73)
-                        .padding(.bottom, 50)
-                }
-            }
+//            VStack {
+//                Spacer()
+//                HStack {
+//                    Spacer()
+//                    Image(domoImage)
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(height: screenHeight * 0.73)
+//                        .padding(.bottom, 50)
+//                }
+//            }
             VStack {
                 Spacer()
                 // 대화창
