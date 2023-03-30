@@ -36,7 +36,7 @@ struct ContactDreamView: View {
             Image(backgroundIamge)
                 .resizable()
                 .scaledToFill()
-                .frame(width: screenWidth, height: screenHeight)
+                .frame(width: screenWidth)
             VStack {
                 Spacer()
                 // 도모쿤을 위한 자리
@@ -81,29 +81,18 @@ struct ContactDreamView: View {
                                 ScriptButtonText(text: "REPLAY")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
-                            .simultaneousGesture(TapGesture().onEnded {
+                            .simultaneousGesture(TapGesture().onEnded{
                                 bgm.buttonEffect.play()
                             })
-                            // 백 버튼 -> GetNumberView
-                            PopView(destination: .view(withId: "GetNumberViewID")) {
-                                ScriptButtonText(text: "BACK")
+                            
+                            // 넥스트 버튼 -> SelectionContactView
+                            PushView(destination: SelectionContactView()) {
+                                ScriptButtonText(text: "NEXT")
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                             .simultaneousGesture(TapGesture().onEnded {
                                 bgm.buttonEffect.play()
                             })
-                            // 간단한 pop -> 이전 화면으로
-                            // PopView {
-                            //    ScriptButtonText(text: "BACK")
-                            //        .padding(.trailing, screenWidth * 0.02)
-                            // }
-                            //
-                            // 넥스트 버튼 -> SelectionContactView
-                            // PushView(destination: SelectionContactView()) {
-                            //    ScriptButtonText(text: "NEXT")
-                            //        .padding(.trailing, screenWidth * 0.02)
-                            // }
-                            //
                         }
                         .padding(.vertical, screenHeight * 0.03)
                         Rectangle()
