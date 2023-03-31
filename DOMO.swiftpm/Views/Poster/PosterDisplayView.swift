@@ -100,7 +100,7 @@ struct PosterDisplayView: View {
                                     .padding(.trailing, screenWidth * 0.02)
                             }
                             if name == "귀여운 도모쿤♫~♪~!"{
-                                PushView(destination: GiveNumberView(poster: Image("PosterPicnic"), script: "꺄아앗! 도모쿤 초 카와이잇~!~@!\n(전화번호를 준다)")) {
+                                PushView(destination: GiveNumberView(poster: Image("PosterPicnic"), script: "꺄아앗! 도모쿤 초 카와이잇~!~@!\n(전화번호를 건넨다)")) {
                                     ScriptButtonText(text: "NEXT")
                                         .padding(.trailing, screenWidth * 0.02)
                                 }
@@ -109,7 +109,7 @@ struct PosterDisplayView: View {
                                 })
                             }
                             else if name == "박력있는 도모쿤♫~♪~!"{
-                                PushView(destination: GiveNumberView(poster: Image("PosterDomo"), script: "꺄아앗! 도모쿤 박력 스게~!~@!\n(전화번호를 준다)")) {
+                                PushView(destination: GiveNumberView(poster: Image("PosterDomo"), script: "꺄아앗! 도모쿤 박력 스게~!~@!\n(전화번호를 건넨다)")) {
                                     ScriptButtonText(text: "NEXT")
                                         .padding(.trailing, screenWidth * 0.02)
                                 }
@@ -118,7 +118,7 @@ struct PosterDisplayView: View {
                                 })
                             }
                             else if name == "힙스터 도모쿤♫~♪~!"{
-                                PushView(destination: GiveNumberView(poster: Image("PosterBlue"), script: "꺄아앗! 도모쿤의 초궁극의 멋짐에 빠져버렷~!~@!\n(전화번호를 준다)")) {
+                                PushView(destination: GiveNumberView(poster: Image("PosterBlue"), script: "꺄아앗! 도모쿤의 초궁극의 멋짐에 빠져버렷~!~@!\n(전화번호를 건넨다)")) {
                                     ScriptButtonText(text: "NEXT")
                                         .padding(.trailing, screenWidth * 0.02)
                                 }
@@ -127,7 +127,7 @@ struct PosterDisplayView: View {
                                 })
                             }
                             else if name == "러블리 도모쿤♫~♪~!"{
-                                PushView(destination: GiveNumberView(poster: Image("PosterMarry"), script: "꺄아앗! 도모쿤 초 러블리데스~!~@!\n(전화번호를 준다)")) {
+                                PushView(destination: GiveNumberView(poster: Image("PosterMarry"), script: "꺄아앗! 도모쿤 초 러블리데스~!~@!\n(전화번호를 건넨다)")) {
                                     ScriptButtonText(text: "NEXT")
                                         .padding(.trailing, screenWidth * 0.02)
                                 }

@@ -16,8 +16,8 @@ struct GiveNumberView: View {
 
     let screenHeight = UIScreen.main.bounds.size.height
     let screenWidth = UIScreen.main.bounds.size.width
-    static let gradientStart = Color(red: 140.0 / 255, green: 89.0 / 255, blue: 181.0 / 255)
-    static let gradientEnd = Color(red: 249 / 255, green: 227 / 255, blue: 255 / 255).opacity(0)
+    static let gradientStart = Color(red: 29 / 255, green: 84 / 255, blue: 74 / 255)
+    static let gradientEnd = Color(red: 219 / 255, green: 255 / 255, blue: 248 / 255).opacity(0)
     let backgroundIamge = "BackgroundMain"
     let domoImage = "DomoStand"
     // 이름, 포스터, 대사 입력받기
@@ -66,7 +66,7 @@ struct GiveNumberView: View {
                 ZStack(alignment: .top) {
                     // 대화창 배경
                     Rectangle()
-                        .fill(Color(red: 34 / 255, green: 6 / 255, blue: 56 / 255))
+                        .fill(Color(red: 6 / 255, green: 44 / 255, blue: 56 / 255))
                         .opacity(0.72)
                         .onTapGesture {
                             bgm.buttonEffect.play()
@@ -141,7 +141,7 @@ struct GiveNumberView: View {
 
 struct GiveNumberView_Previews: PreviewProvider {
     static var previews: some View {
-        GiveNumberView(poster: Image("PosterPicnic"), script: "꺄아앗! 도모쿤의 궁극의 멋짐에 빠져버렷~!~@!\n(전화번호를 준다)")
+        GiveNumberView(poster: Image("PosterPicnic"), script: "꺄아앗! 도모쿤의 궁극의 멋짐에 빠져버렷~!~@!\n(전화번호를 건넨다)")
             .previewInterfaceOrientation(.landscapeLeft)
             .environmentObject(BGM())
     }
