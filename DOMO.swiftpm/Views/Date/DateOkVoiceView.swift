@@ -28,7 +28,7 @@ struct DateOkVoiceView: View {
                 .frame(height: screenHeight)
                 .onAppear {
                     bgm.firstBGM.stop()
-                    bgm.secondBGM.play()
+                    bgm.secondBGM.play(numberOfLoops: 2)
                     bgm.happyEffect.volume = 0.5
                     bgm.girlGOEffect.play()
                 }

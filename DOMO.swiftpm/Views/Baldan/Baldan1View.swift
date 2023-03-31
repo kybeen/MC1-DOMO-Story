@@ -31,7 +31,7 @@ struct Baldan1View: View {
                 .scaledToFill()
                 .frame(height: screenHeight)
                 .onAppear{
-                    bgm.firstBGM.play()
+                    bgm.firstBGM.play(numberOfLoops: 2)
                     bgm.happyEffect.volume = 0.5
                 }
             VStack {

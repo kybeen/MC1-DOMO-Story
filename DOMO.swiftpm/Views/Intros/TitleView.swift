@@ -25,7 +25,7 @@ struct TitleView: View {
                         Timer.scheduledTimer(withTimeInterval: 0.6, repeats: true) { _ in
                             isAnimating.toggle()
                         }
-                        bgm.titleBGM.play()
+                        bgm.titleBGM.play(numberOfLoops: 2)
                         bgm.firstBGM.volume = 0.4
                     }
                     .padding(.top, 100)
