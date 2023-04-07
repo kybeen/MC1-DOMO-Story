@@ -74,13 +74,13 @@
 
 |  |  |
 | --- | --- |
-| <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif" width=300> | <image src="https://user-images.githubusercontent.com/89764127/230520154-f786eef3-4038-4151-8760-b848eb91dc49.gif" width=300> |
+| <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif" > | <image src="https://user-images.githubusercontent.com/89764127/230520154-f786eef3-4038-4151-8760-b848eb91dc49.gif" > |
 | 시작 화면 | 닉네임 입력 |
-| <image src="https://user-images.githubusercontent.com/89764127/230520526-4cf4b71b-e322-43b2-8d5c-a73fe129581d.gif" width=300> | <image src="https://user-images.githubusercontent.com/89764127/230520699-b87348b4-f291-4fbf-8531-f2b2b48696bf.gif" width=300> |
+| <image src="https://user-images.githubusercontent.com/89764127/230520526-4cf4b71b-e322-43b2-8d5c-a73fe129581d.gif"> | <image src="https://user-images.githubusercontent.com/89764127/230520699-b87348b4-f291-4fbf-8531-f2b2b48696bf.gif"> |
 | 스토리 진행1 | 선택 항목 |
-| <image src="https://user-images.githubusercontent.com/89764127/230519788-027b11b7-e592-45cd-bccc-8018348a3ada.png" width=300> | <image src="https://user-images.githubusercontent.com/89764127/230519937-ce857b7b-e73c-45c1-b985-762fdf345c4d.png" width=300> |
+| <image src="https://user-images.githubusercontent.com/89764127/230519788-027b11b7-e592-45cd-bccc-8018348a3ada.png"> | <image src="https://user-images.githubusercontent.com/89764127/230519937-ce857b7b-e73c-45c1-b985-762fdf345c4d.png"> |
 | 스토리 진행2 | 스토리 진행3 |
-| <image src="https://user-images.githubusercontent.com/89764127/230519944-17d791dc-9991-498c-a1f6-35754a644045.png" width=300> | <image src="https://user-images.githubusercontent.com/89764127/230519955-2d20ab0d-4e96-4dbc-9e97-83f64cedf2a0.png" width=300> |
+| <image src="https://user-images.githubusercontent.com/89764127/230519944-17d791dc-9991-498c-a1f6-35754a644045.png"> | <image src="https://user-images.githubusercontent.com/89764127/230519955-2d20ab0d-4e96-4dbc-9e97-83f64cedf2a0.png"> |
 | 엔딩 | 크레딧 |
 
 <p align="center">
