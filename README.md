@@ -1,6 +1,6 @@
-# DOMO-Story
+# Apple Developer Acedemy @ POSTECH - Mini Challenge 1
+### 팀 FirstDot의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
 
-## 팀 FirstDot의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
 <!-- <span style="font-size: 150%; font-weight: bold;">
 팀 FirstDot의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
 <span style="color: red">.</span>
