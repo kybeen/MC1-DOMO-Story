@@ -14,7 +14,7 @@
 
 ## 팀원소개
      
-## 👨‍💻 Team first. 👩‍💻
+## 👨‍💻 Team FirstDot 👩‍💻
 <table>
   <tr>
     <td align="center">
