@@ -15,6 +15,7 @@
 ## 팀원소개
      
 ## 👨‍💻 Team FirstDot 👩‍💻
+ 
 <table>
   <tr>
     <td align="center">
@@ -61,6 +62,7 @@
     </td>
   </tr>
 </table>
+ <img width="100" alt="image" src="https://user-images.githubusercontent.com/75407186/230522429-7522d7d4-2d81-4ebd-bec9-f237997b7968.png">
 <br>
 
 
