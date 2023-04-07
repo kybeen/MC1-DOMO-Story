@@ -7,7 +7,7 @@
 의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
 </span> -->
 <p align="center">
- <img width="100" alt="image" src="https://user-images.githubusercontent.com/75407186/230522429-7522d7d4-2d81-4ebd-bec9-f237997b7968.png">
+ <img width="200" alt="image" src="https://user-images.githubusercontent.com/75407186/230522429-7522d7d4-2d81-4ebd-bec9-f237997b7968.png">
   </p>
 <p align="center">
   <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif" width=700 height=500>
