@@ -1,10 +1,11 @@
 # DOMO-Story
 
-<span style="font-size: 150%; font-weight: bold;">
-팀 first
+## 팀 FirstDot의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
+<!-- <span style="font-size: 150%; font-weight: bold;">
+팀 FirstDot의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
 <span style="color: red">.</span>
 의 Mini Challenge 1-1 과정을 캐릭터 '도모쿤'의 연애 스토리로 풀어낸 미연시 컨셉의 App
-</span>
+</span> -->
 <p align="center">
   <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif" width=700 height=500>
 </p>
@@ -74,7 +75,7 @@
 
 |  |  |
 | --- | --- |
-| <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif" > | <image src="https://user-images.githubusercontent.com/89764127/230520154-f786eef3-4038-4151-8760-b848eb91dc49.gif" > |
+| <image src="https://user-images.githubusercontent.com/89764127/230517365-ef75a0be-4e87-4cf5-a424-9cf1877567ab.gif"> | <image src="https://user-images.githubusercontent.com/89764127/230520154-f786eef3-4038-4151-8760-b848eb91dc49.gif"> |
 | 시작 화면 | 닉네임 입력 |
 | <image src="https://user-images.githubusercontent.com/89764127/230520526-4cf4b71b-e322-43b2-8d5c-a73fe129581d.gif"> | <image src="https://user-images.githubusercontent.com/89764127/230520699-b87348b4-f291-4fbf-8531-f2b2b48696bf.gif"> |
 | 스토리 진행1 | 선택 항목 |
